@@ -9,7 +9,7 @@
 
 ## Definition
 
-Script to prevent accidental execution of critical commands, e. g. to shutdown or reboot the system.
+Script to prevent accidental execution of critical commands, e. g. to shutdown or reboot the system by prompting the user to enter its hostname.
 
 [Top](#inhibit-)
 
@@ -21,7 +21,7 @@ One solution is to create *Bash* aliases to prevent the execution of critical co
 
 However, the problem with these aliases is that you may get used to typing them and also execute them on the wrong system.
 
-So, to avoid this, the `inhibit.sh` script will prompt to confirm the hostname of the system you are on in order to execute the given command to shutdown, reboot or whatever.
+So, to avoid this, the `inhibit.sh` script will prompt to enter the hostname of the system you are on in order to execute the given command to shutdown, reboot or whatever.
 
 [Top](#inhibit-)
 
@@ -77,6 +77,6 @@ After adding the preferred aliases, you can apply the changes either by logging 
 $ source ~/.bashrc
 ```
 
-Now, if you really have to e. g. reboot the system, you will have to confirm the command or give the full path to the `reboot` command to do so.
+Now, if you really have to e. g. reboot the system, you will have to confirm the execution of the command or explicitly give the full path to the `reboot` command to do so.
 
 [Top](#inhibit-)
