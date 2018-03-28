@@ -15,7 +15,7 @@ Script to prevent accidental execution of critical commands, e. g. to shutdown o
 
 ## Details
 
-Even though, you should always be concentrated when working on the shell of a server and think before yout type, careless mistakes can happen, especially under pressure of time. For example, accidently shutting down a virtualization server can (or will) lead to extensive consequences.
+Even though, you should always be concentrated when working on the shell of a server and think before you type, careless mistakes can happen, especially under pressure of time. For example, accidently shutting down a virtualization server can (or will) lead to extensive consequences.
 
 One solution is to create *Bash* aliases to prevent the execution of critical commands such as `shutdown`, `poweroff`, `halt` and `reboot`.
 
