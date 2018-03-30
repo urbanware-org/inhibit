@@ -20,7 +20,7 @@ if [ -z "$command" ]; then
 fi
 
 if [ $use_colors -eq 1 ]; then
-    cn="\e[0m"      # mentioned
+    cn="\e[0m"      # none
     cc="\e[1;36m"   # cyan
     cg="\e[1;32m"   # green
     cr="\e[1;31m"   # red
