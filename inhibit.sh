@@ -11,10 +11,10 @@
 version="1.0.2"
 
 # -- Preferences -------------------------------------------------------------
-use_colors=1        # Enable colored output
-use_random=0        # Use random string to confirm instead of hostname
+use_colors=1        # Enable colored output for more or less significant terms
+use_random=0        # Use random string to confirm instead of the hostname
 random_count=8      # Number of random characters (minimum = 4, maximum = 32)
-random_upper=1      # Additionally use uppercase letters in the random string
+random_upper=0      # Additionally use uppercase letters in the random string
 # ----------------------------------------------------------------------------
 
 command=$1
