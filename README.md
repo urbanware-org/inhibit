@@ -12,7 +12,7 @@
 
 Script to prevent accidental execution of critical commands, e. g. to shutdown or reboot the system by prompting the user to enter its hostname.
 
-[Top](#inhibit-)
+[Top](#inhibit)
 
 ## Details
 
@@ -24,7 +24,7 @@ However, the problem with these aliases is that you may get used to typing them 
 
 So, to avoid this, the `inhibit.sh` script will prompt to enter the hostname of the system you are on in order to execute the given command to shutdown, reboot or whatever.
 
-[Top](#inhibit-)
+[Top](#inhibit)
 
 ## Usage
 
@@ -80,7 +80,7 @@ $ source ~/.bashrc
 
 Now, if you really have to e. g. reboot the system, you will have to confirm the execution of the command or explicitly give the full path to the `reboot` command to do so.
 
-[Top](#inhibit-)
+[Top](#inhibit)
 
 ## Preferences
 
@@ -100,4 +100,4 @@ Inside the `inhibit.sh` you can find a few preferences that can be set:
     *   `0` = disabled (default)
     *   `1` = enabled
 
-[Top](#inhibit-)
+[Top](#inhibit)
