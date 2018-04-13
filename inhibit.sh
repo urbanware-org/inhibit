@@ -8,10 +8,14 @@
 # GitHub: https://github.com/urbanware-org/inhibit
 # ============================================================================
 
-version="1.0.1"
+version="1.0.2"
 
-# Set either to '1' to enable or to '0' to disable colored output
-use_colors=1
+# -- Preferences -------------------------------------------------------------
+use_colors=1        # Enable colored output
+use_random=0        # Use random string to confirm instead of hostname
+random_count=8      # Number of random characters (minimum = 4, maximum = 32)
+random_upper=1      # Additionally use uppercase letters in the random string
+# ----------------------------------------------------------------------------
 
 command=$1
 if [ -z "$command" ]; then
@@ -20,7 +24,7 @@ if [ -z "$command" ]; then
 fi
 
 if [ $use_colors -eq 1 ]; then
-    cn="\e[0m"      # none
+    cn="\e[0m"      # none (default color)
     cc="\e[1;36m"   # cyan
     cg="\e[1;32m"   # green
     cr="\e[1;31m"   # red
@@ -29,20 +33,34 @@ else
     qt="'"
 fi
 
-hostname=$(hostname -s)
+if [ $use_random -eq 1 ]; then
+    if [ $random_count -gt 32 ]; then
+        random_count=32
+    elif [ $random_count -lt 4 ]; then
+        random_count=4
+    fi
+    if [ $random_upper -eq 1 ]; then
+        confirm_string=$(uuidgen | md5sum | base64 | head -c$random_count)
+    else
+        confirm_string=$(uuidgen | md5sum | head -c$random_count)
+    fi
+    confirm_type="Sequence:"
+else
+    confirm_string=$(hostname -s)
+    confirm_type="Hostname:"
+fi
+
 echo
 echo -e "${cy}Warning!$cn The ${qt}${cc}$command${cn}${qt} command has been"\
         "${cr}inhibited${cn}!"
 echo
-echo "In order to proceed with the process you have to enter the hostname of"\
-     "the"
-echo "system to confirm."
+echo "In order to proceed you have to confirm the process."
 echo
-echo -e "${cc}Hostname:${cn} $hostname"
+echo -e "${cc}$confirm_type${cn} $confirm_string"
 echo -e "${cc}Confirm:${cn}  \c"
-read confirm
+read user_input
 echo
-if [ "$confirm" = "$hostname" ]; then
+if [ "$confirm_string" = "$user_input" ]; then
     echo -e "${cg}Proceeding.${cn}\n"
     $command
 else
