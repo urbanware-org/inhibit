@@ -4,6 +4,7 @@
 *   [Definition](#definition)
 *   [Details](#details)
 *   [Usage](#usage)
+*   [Preferences](#preferences)
 
 ----
 
@@ -78,5 +79,25 @@ $ source ~/.bashrc
 ```
 
 Now, if you really have to e. g. reboot the system, you will have to confirm the execution of the command or explicitly give the full path to the `reboot` command to do so.
+
+[Top](#inhibit-)
+
+## Preferences
+
+Inside the `inhibit.sh` you can find a few preferences that can be set:
+
+*   `use_colors`<br>Enable colored output which highlights more or less significant terms.
+    *   `0` = disabled
+    *   `1` = enabled (default)<br><br>
+*   `use_random`<br>Use a random string to confirm instead of the hostname of the system. By default, it only contains lowercase letters and numbers.
+    *   `0` = disabled (default)
+    *   `1` = enabled<br><br>
+*   `random_count`<br>Number of random characters (if `use_random` is enabled).
+    *   `4` = minimum
+    *   `8` = default
+    *   `32` = maximum<br><br>
+*   `random_upper`<br>Additionally use uppercase letters in the random string  (if `use_random` is enabled).
+    *   `0` = disabled (default)
+    *   `1` = enabled
 
 [Top](#inhibit-)
