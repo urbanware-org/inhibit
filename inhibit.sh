@@ -8,11 +8,11 @@
 # GitHub: https://github.com/urbanware-org/inhibit
 # ============================================================================
 
-version="1.0.2"
+version="1.0.3"
 
 # -- Preferences -------------------------------------------------------------
 use_colors=1        # Enable colored output for more or less significant terms
-use_random=0        # Use random string to confirm instead of the hostname
+use_random=0        # Use random string instead of the hostname to confirm
 random_count=8      # Number of random characters (minimum = 4, maximum = 32)
 random_upper=0      # Additionally use uppercase letters in the random string
 # ----------------------------------------------------------------------------
@@ -44,10 +44,10 @@ if [ $use_random -eq 1 ]; then
     else
         confirm_string=$(uuidgen | md5sum | head -c$random_count)
     fi
-    confirm_type="Sequence:"
+    confirm_type="Sequence"
 else
     confirm_string=$(hostname -s)
-    confirm_type="Hostname:"
+    confirm_type="Hostname"
 fi
 
 echo
@@ -56,7 +56,7 @@ echo -e "${cy}Warning!$cn The ${qt}${cc}$command${cn}${qt} command has been"\
 echo
 echo "In order to proceed you have to confirm the process."
 echo
-echo -e "${cc}$confirm_type${cn} $confirm_string"
+echo -e "${cc}$confirm_type:${cn} $confirm_string"
 echo -e "${cc}Confirm:${cn}  \c"
 read user_input
 echo
@@ -64,8 +64,8 @@ if [ "$confirm_string" = "$user_input" ]; then
     echo -e "${cg}Proceeding.${cn}\n"
     $command
 else
-    echo -e "${cr}Canceled${cn}. Hostname and confirmation string do not"\
-            "match.\n"
+    echo -e "${cr}Canceled${cn}. $confirm_type and confirmation string do"\
+            "not match.\n"
 fi
 
 # EOF
