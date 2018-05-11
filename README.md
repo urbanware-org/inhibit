@@ -5,6 +5,7 @@
 *   [Details](#details)
 *   [Usage](#usage)
 *   [Preferences](#preferences)
+*   [Contact](#contact)
 
 ----
 
@@ -99,5 +100,13 @@ Inside the `inhibit.sh` you can find a few preferences that can be set:
 *   `random_upper`<br>Additionally use uppercase letters in the random string  (if `use_random` is enabled).
     *   `0` = disabled (default)
     *   `1` = enabled
+
+[Top](#inhibit)
+
+## Contact
+
+Any suggestions, questions, bugs to report or feedback to give?
+
+You can contact me by sending an email to <dev@urbanware.org>.
 
 [Top](#inhibit)
