@@ -61,11 +61,10 @@ echo -e "${cc}Confirm:${cn}  \c"
 read user_input
 echo
 if [ "$confirm_string" = "$user_input" ]; then
-    echo -e "${cg}Proceeding.${cn}\n"
+    echo -e "Confirmation ${cg}successful${cn}. Proceeding."
     $command
 else
-    echo -e "${cr}Canceled${cn}. $confirm_type and confirmation string do"\
-            "not match.\n"
+    echo -e "Confirmation ${cr}failed${cn}. Process canceled.\n"
 fi
 
 # EOF
