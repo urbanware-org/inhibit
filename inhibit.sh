@@ -8,7 +8,7 @@
 # GitHub: https://github.com/urbanware-org/inhibit
 # ============================================================================
 
-version="1.0.3"
+version="1.0.4"
 
 # -- Preferences -------------------------------------------------------------
 use_colors=1        # Enable colored output for more or less significant terms
