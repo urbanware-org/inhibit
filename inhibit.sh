@@ -63,7 +63,7 @@ read user_input
 echo
 if [ "$confirm_string" = "$user_input" ]; then
     echo -e "Confirmation ${cg}successful${cn}. Proceeding."
-    $command
+    $@
 else
     echo -e "Confirmation ${cr}failed${cn}. Process canceled.\n"
 fi
