@@ -9,7 +9,7 @@
 # GitLab: https://gitlab.com/urbanware-org/inhibit
 # ============================================================================
 
-version="1.0.4"
+version="1.0.5"
 
 # -- Preferences -------------------------------------------------------------
 use_colors=1        # Enable colored output for more or less significant terms
