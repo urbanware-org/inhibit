@@ -43,7 +43,11 @@ alias reboot='/opt/inhibit/inhibit.sh reboot'
 alias shutdown='/opt/inhibit/inhibit.sh shutdown'
 ```
 
-By default the output of the script is colored. If you do not want that, you can disable it by simply setting the `use_colors` variable inside the script to `0`.
+Since version 1.0.5 you can also give command-line arguments for the inhibited command, for example:
+
+```bash
+alias poweroff='/opt/inhibit/inhibit.sh poweroff -f'
+```
 
 Then you can [apply the changes](#apply-changes).
 
