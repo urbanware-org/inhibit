@@ -1,4 +1,4 @@
-# Inhibit
+# *Inhibit*
 
 **Table of contents**
 *   [Definition](#definition)
