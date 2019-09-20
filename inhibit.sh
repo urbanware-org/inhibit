@@ -9,7 +9,7 @@
 # GitLab: https://gitlab.com/urbanware-org/inhibit
 # ============================================================================
 
-version="1.0.5"
+version="1.1.0"
 
 script_dir=$(dirname $(readlink -f $0))
 config_file="$dirname/inhibit.conf"
