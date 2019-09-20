@@ -89,7 +89,7 @@ Now, if you really have to e.g. reboot the system, you will have to confirm the 
 
 ## Preferences
 
-Inside the `inhibit.sh` you can find a few preferences that can be set:
+Inside the included config file `inhibit.conf` you can find a few preferences that can be set:
 
 *   `use_colors`<br>Enable colored output which highlights more or less significant terms.
     *   `0` = disabled
