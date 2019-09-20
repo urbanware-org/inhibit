@@ -11,12 +11,19 @@
 
 version="1.0.5"
 
-# -- Preferences -------------------------------------------------------------
-use_colors=1        # Enable colored output for more or less significant terms
-use_random=0        # Use random string instead of the hostname to confirm
-random_count=8      # Number of random characters (minimum = 4, maximum = 32)
-random_upper=0      # Additionally use uppercase letters in the random string
-# ----------------------------------------------------------------------------
+script_dir=$(dirname $(readlink -f $0))
+config_file="$dirname/inhibit.conf"
+
+# Do not change any of the values below! See the 'inhibit.conf' file for
+# configuration options.
+use_colors=1
+use_random=0
+random_count=8
+random_upper=0
+
+if [ -f "$config_file" ]; then
+    source $config_file
+fi
 
 command=$1
 if [ -z "$command" ]; then
