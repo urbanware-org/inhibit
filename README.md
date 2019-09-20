@@ -11,7 +11,7 @@
 
 ## Definition
 
-Script to prevent accidental execution of critical commands, e. g. to shutdown or reboot the system by prompting the user to enter its hostname.
+Script to prevent accidental execution of critical commands, e.g. to shutdown or reboot the system by prompting the user to enter its hostname.
 
 [Top](#inhibit)
 
@@ -83,7 +83,7 @@ After adding the preferred aliases, you can apply the changes either by logging 
 $ source ~/.bashrc
 ```
 
-Now, if you really have to e. g. reboot the system, you will have to confirm the execution of the command or explicitly give the full path to the `reboot` command to do so.
+Now, if you really have to e.g. reboot the system, you will have to confirm the execution of the command or explicitly give the full path to the `reboot` command to do so.
 
 [Top](#inhibit)
 
