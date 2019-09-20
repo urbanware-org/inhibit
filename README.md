@@ -1,4 +1,4 @@
-# *Inhibit*
+# *Inhibit* <img src="inhibit.png" alt="Inhibit logo" height="48px" width="48px" align="right"/>
 
 **Table of contents**
 *   [Definition](#definition)
