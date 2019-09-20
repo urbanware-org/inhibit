@@ -2,7 +2,7 @@
 
 ***Inhibit*** - Prevent accidental execution of certain commands
 
-Copyright &copy; 2018 by Ralf Kilian
+Copyright &copy; 2019 by Ralf Kilian
 
 Distributed under the *MIT License*:
 

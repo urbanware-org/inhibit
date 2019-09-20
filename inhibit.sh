@@ -2,7 +2,7 @@
 
 # ============================================================================
 # Inhibit - Prevent accidental execution of certain commands
-# Copyright (C) 2018 by Ralf Kilian
+# Copyright (C) 2019 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
 # GitHub: https://github.com/urbanware-org/inhibit
