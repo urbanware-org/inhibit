@@ -47,6 +47,11 @@ function apply_config() {
 }
 
 function inhibit_command_execution() {
+    echo " _       _     _ _     _ _   "
+    echo "(_)_ __ | |__ (_) |__ (_) |_ "
+    echo "| | '_ \| '_ \| | '_ \| | __|"
+    echo "| | | | | | | | | |_) | | |_ "
+    echo "|_|_| |_|_| |_|_|_.__/|_|\__|"
     echo
     echo -e "${cy}Warning!$cn The ${qt}${cc}$inhibit_command${cn}${qt}"\
             "command has been ${cr}inhibited${cn}!"
