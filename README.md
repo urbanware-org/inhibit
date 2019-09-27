@@ -19,11 +19,19 @@ Script to prevent accidental execution of critical commands, e.g. to shutdown or
 
 Even though, you should always be concentrated when working on the shell of a server and think before you type, careless mistakes can happen, especially under pressure of time. For example, accidently shutting down a virtualization server can (or will) lead to extensive consequences.
 
+### Shell commands
+
 One solution is to create *Bash* aliases to prevent the execution of critical commands such as `shutdown`, `poweroff`, `halt` and `reboot`.
 
 However, the problem with these aliases is that you may get used to typing them and also execute them on the wrong system.
 
 So, to avoid this, the `inhibit.sh` script will prompt to enter the hostname of the system you are on in order to execute the given command to shutdown, reboot or whatever.
+
+### Services
+
+This also applies to services controlled by `systemctl`. You can also use this tool to force the confirmation for starting, stopping, restarting and reloading services.
+
+However, checking the status of a service (using `systemctl status`) does not require any confirmation.
 
 [Top](#inhibit)
 
