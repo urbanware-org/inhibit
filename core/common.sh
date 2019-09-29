@@ -44,14 +44,21 @@ function apply_config() {
     if [ ! "$random_upper" = "1" ]; then
         random_upper=0
     fi
+
+    if [ ! "$show_header" = "1" ]; then
+        show_header=0
+    fi
 }
 
 function inhibit_command_execution() {
-    echo " _       _     _ _     _ _   "
-    echo "(_)_ __ | |__ (_) |__ (_) |_ "
-    echo "| | '_ \| '_ \| | '_ \| | __|"
-    echo "| | | | | | | | | |_) | | |_ "
-    echo "|_|_| |_|_| |_|_|_.__/|_|\__|"
+    if [ $show_header -eq 1 ]; then
+        echo -e "\r"\
+      "  __   __   __    ___       _     _ _     _ _      __   __   __   \n"\
+      " / /  / /  / /   |_ _|_ __ | |__ (_) |__ (_) |_    \ \  \ \  \ \  \n"\
+      "/ /  / /  / /     | || '_ \| '_ \| | '_ \| | __|    \ \  \ \  \ \ \n"\
+      "\ \  \ \  \ \     | || | | | | | | | |_) | | |_     / /  / /  / / \n"\
+      " \_\  \_\  \_\   |___|_| |_|_| |_|_|_.__/|_|\__|   /_/  /_/  /_/  "
+    fi
     echo
     echo -e "${cy}Warning!$cn The ${qt}${cc}$inhibit_command${cn}${qt}"\
             "command has been ${cr}inhibited${cn}!"
