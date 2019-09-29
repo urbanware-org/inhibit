@@ -11,7 +11,7 @@
 # ============================================================================
 
 function inhibit_service_control() {
-    if [[ $inhibit_command =~ "status $service" ]]; then
+    if [[ $inhibit_command =~ "systemctl status $service" ]]; then
         # Checking the status of the service is harmless, so there is no need
         # to inhibit that. Thus, the command will be executed.
         $inhibit_command
