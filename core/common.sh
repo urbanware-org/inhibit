@@ -19,6 +19,7 @@ use_random=0
 random_count=8
 random_upper=0
 services=""
+inhibit_given_services=1
 
 function apply_config() {
     if [ "$use_colors" = "1" ]; then
@@ -43,6 +44,10 @@ function apply_config() {
 
     if [ ! "$random_upper" = "1" ]; then
         random_upper=0
+    fi
+
+    if [ ! "$inhibit_given_services" = "1" ]; then
+        inhibit_given_services=0
     fi
 
     if [ ! "$show_header" = "1" ]; then
