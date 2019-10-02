@@ -4,7 +4,6 @@
 *   [Definition](#definition)
 *   [Details](#details)
 *   [Usage](#usage)
-*   [Preferences](#preferences)
 *   [Contact](#contact)
 
 ----
@@ -62,12 +61,6 @@ $ source ~/.bashrc
 ```
 
 Now, if you really have to e.g. reboot the system, you will have to confirm the execution of the command or explicitly give the full path to the `reboot` command to do so.
-
-[Top](#inhibit)
-
-## Preferences
-
-Inside the included config file `inhibit.conf` you can find some preferences that can be globally set.
 
 [Top](#inhibit)
 
