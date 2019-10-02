@@ -28,7 +28,7 @@ So, to avoid this, *Inhibit* will prompt to enter the hostname of the system you
 
 ### Services
 
-This also applies to services controlled by `systemctl`. You can also use *Inhibit* to force the confirmation for starting, stopping, restarting and reloading services.
+This also applies to services controlled by `systemctl`. You can use *Inhibit* to force the confirmation for starting, stopping, restarting and reloading services.
 
 However, checking the status of a service (using `systemctl status`) does not require any confirmation as this is harmless.
 
@@ -53,6 +53,14 @@ Since version 1.0.5 you can also give command-line arguments for the inhibited c
 ```bash
 alias poweroff='/opt/inhibit/inhibit.sh poweroff -f'
 ```
+
+As already mentioned above, you can also inhibit commands for services controlled by `systemctl`.
+
+```bash
+alias systemctl='/opt/inhibit/inhibit.sh systemctl'
+```
+
+Notice that this alias will have no effect unless you explicitly add the name of the service (or services) which should be confirmed to the service list inside `inhibit.conf`. Details can be found inside that file.
 
 After adding the preferred aliases, you can apply the changes either by logging out and in again or by reloading the `.bashrc` file of the current user.
 
