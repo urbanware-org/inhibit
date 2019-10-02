@@ -18,12 +18,21 @@ function inhibit_service_control() {
         exit
     fi
 
-    for service in $services; do
-        if [[ $inhibit_command =~ "$service" ]]; then
-            inhibit_command_execution
-            break
-        fi
-    done
+    if [ $inhibit_given_services -eq 1 ]; then
+        for service in $services; do
+            if [[ $inhibit_command =~ "$service" ]]; then
+                inhibit_command_execution
+                break
+            fi
+        done
+    else
+        for service in $services; do
+            if [[ ! $inhibit_command =~ "$service" ]]; then
+                inhibit_command_execution
+                break
+            fi
+        done
+    fi
 }
 
 # EOF
