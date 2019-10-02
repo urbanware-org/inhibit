@@ -25,19 +25,17 @@ One solution is to create *Bash* aliases to prevent the execution of critical co
 
 However, the problem with these aliases is that you may get used to typing them and also execute them on the wrong system.
 
-So, to avoid this, the `inhibit.sh` script will prompt to enter the hostname of the system you are on in order to execute the given command to shutdown, reboot or whatever.
+So, to avoid this, *Inhibit* will prompt to enter the hostname of the system you are on in order to execute the given command to shutdown, reboot or whatever.
 
 ### Services
 
-This also applies to services controlled by `systemctl`. You can also use this tool to force the confirmation for starting, stopping, restarting and reloading services.
+This also applies to services controlled by `systemctl`. You can also use *Inhibit* to force the confirmation for starting, stopping, restarting and reloading services.
 
-However, checking the status of a service (using `systemctl status`) does not require any confirmation.
+However, checking the status of a service (using `systemctl status`) does not require any confirmation as this is harmless.
 
 [Top](#inhibit)
 
 ## Usage
-
-### Shell script
 
 Now, to prevent the accidental execution of the `shutdown`, `poweroff`, `halt` and `reboot`, add the following lines either to `/etc/bashrc` (system wide) or `~/.bashrc` (current user, only).
 
@@ -57,34 +55,6 @@ Since version 1.0.5 you can also give command-line arguments for the inhibited c
 alias poweroff='/opt/inhibit/inhibit.sh poweroff -f'
 ```
 
-Then you can [apply the changes](#apply-changes).
-
-### System commands
-
-In case you do not want to use `inhibit.sh` for some reason, you can also use the following *Bash* aliases, but as already mentioned above, using them may lead to getting used to typing them.
-
-If you want colored output you may use the following aliases
-
-```bash
-# Prevent certain commands to shutdown the system in any way
-alias halt='echo -e "\n\e[1;31mSystem halt inhibited! \n\e[1;33mExplicitly run \e[1;36m/sbin/halt\e[1;33m to proceed anyway.\e[0m\n"'
-alias poweroff='echo -e "\n\e[1;31mShutdown inhibited! \n\e[1;33mExplicitly run \e[1;36m/sbin/poweroff\e[1;33m to proceed anyway.\e[0m\n"'
-alias reboot='echo -e "\n\e[1;31mReboot inhibited! \n\e[1;33mExplicitly run \e[1;36m/sbin/reboot\e[1;33m to proceed anyway.\e[0m\n"'
-alias shutdown='echo -e "\n\e[1;31mShutdown inhibited! \n\e[1;33mExplicitly run \e[1;36m/sbin/shutdown\e[1;33m to proceed anyway.\e[0m\n"'
-```
-
-otherwise these:
-
-```bash
-# Prevent certain commands to shutdown the system in any way
-alias halt='echo -e "\nSystem halt inhibited! \nExplicitly run /sbin/halt to proceed anyway.\n"'
-alias poweroff='echo -e "\nShutdown inhibited! \nExplicitly run /sbin/poweroff to proceed anyway.\n"'
-alias reboot='echo -e "\nReboot inhibited! \nExplicitly run /sbin/reboot to proceed anyway.\n"'
-alias shutdown='echo -e "\nShutdown inhibited! \nExplicitly run /sbin/shutdown to proceed anyway.\n"'
-```
-
-### Apply changes
-
 After adding the preferred aliases, you can apply the changes either by logging out and in again or by reloading the `.bashrc` file of the current user.
 
 ```bash
@@ -97,21 +67,7 @@ Now, if you really have to e.g. reboot the system, you will have to confirm the 
 
 ## Preferences
 
-Inside the included config file `inhibit.conf` you can find a few preferences that can be set:
-
-*   `use_colors`<br>Enable colored output which highlights more or less significant terms.
-    *   `0` = disabled
-    *   `1` = enabled (default)<br><br>
-*   `use_random`<br>Use a random string to confirm instead of the hostname of the system. By default, it only contains lowercase letters and numbers.
-    *   `0` = disabled (default)
-    *   `1` = enabled<br><br>
-*   `random_count`<br>Number of random characters (if `use_random` is enabled).
-    *   `4` = minimum
-    *   `8` = default
-    *   `32` = maximum<br><br>
-*   `random_upper`<br>Additionally use uppercase letters in the random string  (if `use_random` is enabled).
-    *   `0` = disabled (default)
-    *   `1` = enabled
+Inside the included config file `inhibit.conf` you can find some preferences that can be globally set.
 
 [Top](#inhibit)
 
