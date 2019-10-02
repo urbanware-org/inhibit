@@ -10,6 +10,10 @@
 # GitLab: https://gitlab.com/urbanware-org/inhibit
 # ============================================================================
 
+# Before version 1.2.0, the configuration options were simple variables here.
+# My now, there is a separate configuration file. See the file 'inhibit.conf'
+# for preferences.
+
 script_dir=$(dirname $(readlink -f $0))
 script_file=$(basename "$0")
 source ${script_dir}/core/common.sh
