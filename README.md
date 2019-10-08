@@ -78,4 +78,6 @@ Any suggestions, questions, bugs to report or feedback to give?
 
 You can contact me by sending an email to <dev@urbanware.org>.
 
+Further information can be found inside the `CONTACT` file.
+
 [Top](#inhibit)
