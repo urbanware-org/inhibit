@@ -62,7 +62,7 @@ alias systemctl='/opt/inhibit/inhibit.sh systemctl'
 
 Notice that this alias will have no effect unless you explicitly add the name of the service (or services) which should be confirmed to the service list inside `inhibit.conf`. Details can be found inside that file.
 
-After adding the preferred aliases, you can apply the changes either by logging out and in again or by reloading the `.bashrc` file of the current user.
+After adding the preferred aliases, you can apply the changes either by logging out and in again or by reloading the `.bashrc` file of the current user (depending on in which file you have added the aliases).
 
 ```bash
 $ source ~/.bashrc
