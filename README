@@ -1,0 +1,80 @@
+
+README (Inhibit)
+
+    Project
+
+        Inhibit
+        Version 1.2.0
+        Copyright (C) 2019 by Ralf Kilian
+
+        GitHub: https://github.com/urbanware-org/inhibit
+        GitLab: https://gitlab.com/urbanware-org/inhibit
+
+    Definition
+
+        The Inhibit project is a tool to prevent accidental execution of
+        critical commands, e.g. to shutdown or reboot the system by prompting
+        the user to enter its hostname.
+
+    License
+
+        This project is distributed under the MIT License. You should have
+        received a copy of the license along with this program (see 'LICENSE'
+        file). If not, you can find the license terms here:
+
+            https://opensource.org/licenses/MIT
+
+    Usage
+
+        Now, to e.g. prevent the accidental execution of the 'shutdown',
+        'poweroff', 'halt' and 'reboot' commands, add the following lines
+        either to '/etc/bashrc' (system wide) or '~/.bashrc' (for the current
+        user, only).
+
+        In the following examples 'inhibit.sh' is located in '/opt/inhibit'.
+
+            # Prevent certain commands to shutdown the system in any way
+            alias halt='/opt/inhibit/inhibit.sh halt'
+            alias poweroff='/opt/inhibit/inhibit.sh poweroff'
+            alias reboot='/opt/inhibit/inhibit.sh reboot'
+            alias shutdown='/opt/inhibit/inhibit.sh shutdown'
+
+        You can also give command-line arguments for the inhibited command,
+        for example:
+
+            alias poweroff='/opt/inhibit/inhibit.sh poweroff -f'
+
+        It is also possible to also inhibit commands for services controlled
+        by 'systemctl'.
+
+            alias systemctl='/opt/inhibit/inhibit.sh systemctl'
+
+        Notice that this alias will have no effect unless you explicitly add
+        the name of the service (or services) which should be confirmed to the
+        service list inside 'inhibit.conf'. Details can be found inside that
+        file.
+
+        After adding the preferred aliases, you can apply the changes either
+        by logging out and in again or by reloading the '.bashrc' file of the
+        current user.
+
+            $ source ~/.bashrc
+
+        Now, if you have to execute one of the given commands, you will
+        explicitly have to confirm the execution.
+
+    Contact
+
+        Any suggestions, questions, bugs to report or feedback to give? If so,
+        you can find the contact information inside the 'CONTACT' file.
+
+    Legal information
+
+        The project name is completely fictitious. Any correspondences with
+        existing websites, applications, companies and/or other projects are
+        purely coincidental.
+
+        All trademarks belong to their respective owners.
+
+        Errors and omissions excepted.
+
