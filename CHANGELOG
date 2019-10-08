@@ -1,0 +1,24 @@
+
+CHANGELOG (Inhibit)
+
+    Version 1.2.0 (2019-10-08)
+
+        + Added the feature to also inhibit starting, stopping and restarting
+          services when using 'systemctl'.
+
+        * Revised (and reduced) the code inside the main script by moving code
+          into core modules.
+        * Revised the config file (more features and additional comments).
+        * Revised the output of the main script (negligible changes).
+
+    Version 1.1.0 (2019-09-20)
+
+        + Added a separate config file for user-defined options.
+
+        * Revised the script file (replaced hard-coded options with code to
+          read config files).
+
+    Version 1.0.5 (2018-12-17)
+
+        * First official release of this major version.
+
