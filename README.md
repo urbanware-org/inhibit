@@ -36,7 +36,7 @@ However, checking the status of a service (using `systemctl status`) does not re
 
 ## Usage
 
-Now, to prevent the accidental execution of the `shutdown`, `poweroff`, `halt` and `reboot` commands, add the following lines either to `/etc/bashrc` (system wide) or `~/.bashrc` (current user, only).
+Now, to e.g. prevent the accidental execution of the `shutdown`, `poweroff`, `halt` and `reboot` commands, add the following lines either to `/etc/bashrc` (system wide) or `~/.bashrc` (for the current user, only).
 
 In the following examples `inhibit.sh` is located in `/opt/inhibit`.
 
