@@ -21,6 +21,12 @@ random_upper=0
 services=""
 inhibit_given_services=1
 
+header="  __   __   __    ___       _     _ _     _ _      __   __   __
+ / /  / /  / /   |_ _|_ __ | |__ (_) |__ (_) |_    \ \  \ \  \ \  \r
+/ /  / /  / /     | || '_ \| '_ \| | '_ \| | __|    \ \  \ \  \ \ \r
+\ \  \ \  \ \     | || | | | | | | | |_) | | |_     / /  / /  / / \r
+ \_\  \_\  \_\   |___|_| |_|_| |_|_|_.__/|_|\__|   /_/  /_/  /_/  \r"
+
 function apply_config() {
     if [ "$use_colors" = "1" ]; then
         cn="\e[0m"      # none (default color)
@@ -57,12 +63,7 @@ function apply_config() {
 
 function inhibit_command_execution() {
     if [ $show_header -eq 1 ]; then
-        echo -e "\r"\
-      "  __   __   __    ___       _     _ _     _ _      __   __   __   \n"\
-      " / /  / /  / /   |_ _|_ __ | |__ (_) |__ (_) |_    \ \  \ \  \ \  \n"\
-      "/ /  / /  / /     | || '_ \| '_ \| | '_ \| | __|    \ \  \ \  \ \ \n"\
-      "\ \  \ \  \ \     | || | | | | | | | |_) | | |_     / /  / /  / / \n"\
-      " \_\  \_\  \_\   |___|_| |_|_| |_|_|_.__/|_|\__|   /_/  /_/  /_/  "
+        echo -e "$header"
     fi
     echo
     echo -e "${cy}Warning!$cn The ${qt}${cc}$inhibit_command${cn}${qt}"\
