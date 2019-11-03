@@ -10,7 +10,7 @@
 # GitLab: https://gitlab.com/urbanware-org/inhibit
 # ============================================================================
 
-function inhibit_service_control() {
+inhibit_service_control() {
     if [ -z "$services" ] ||
        [[ $inhibit_command =~ "systemctl status $service" ]]; then
         # Checking the status of the service is harmless, so there is no need

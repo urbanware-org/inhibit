@@ -27,7 +27,7 @@ header="  __   __   __    ___       _     _ _     _ _      __   __   __
 \ \  \ \  \ \     | || | | | | | | | |_) | | |_     / /  / /  / / \r
  \_\  \_\  \_\   |___|_| |_|_| |_|_|_.__/|_|\__|   /_/  /_/  /_/  \r"
 
-function apply_config() {
+apply_config() {
     if [ "$use_colors" = "1" ]; then
         cn="\e[0m"      # none (default color)
         cc="\e[1;36m"   # cyan
@@ -61,7 +61,7 @@ function apply_config() {
     fi
 }
 
-function inhibit_command_execution() {
+inhibit_command_execution() {
     if [ $show_header -eq 1 ]; then
         echo -e "$header"
     fi
@@ -83,12 +83,12 @@ function inhibit_command_execution() {
     fi
 }
 
-function print_version() {
+print_version() {
     echo "$version"
     exit
 }
 
-function random_string() {
+random_string() {
     if [ $random_count -gt 32 ]; then
         random_count=32
     elif [ $random_count -lt 4 ]; then
@@ -101,7 +101,7 @@ function random_string() {
     fi
 }
 
-function usage() {
+usage() {
     error_msg="$1"
     usage="usage: $script_file"
     echo -e "$usage \"COMMAND\" [--version]"
