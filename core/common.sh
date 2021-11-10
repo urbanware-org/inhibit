@@ -39,7 +39,6 @@ apply_config() {
         cy="\e[1;33m"   # yellow
     else
         use_colors=0
-        qt="'"
     fi
 
     if [ ! "$use_random" = "1" ]; then
@@ -69,7 +68,7 @@ inhibit_command_execution() {
         echo -e "$header"
     fi
     echo
-    echo -e "${cy}Warning!$cn The ${qt}${cc}$inhibit_command${cn}${qt}"\
+    echo -e "${cy}Warning!$cn The '${cc}$inhibit_command${cn}'"\
             "command has been ${cr}inhibited${cn}!"
     echo
     echo "In order to proceed you have to confirm the process."
