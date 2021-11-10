@@ -21,7 +21,7 @@ random_upper=0
 services=""
 inhibit_given_services=1
 
-header="
+header_default="
 ####  ##    ##  ##    ##  ####  #######   ####  ########  ########  #######
  ##   ###   ##  ##    ##   ##   ##    ##   ##      ##     ##        ##    ##
  ##   ####  ##  ##    ##   ##   ##    ##   ##      ##     ##        ##    ##
@@ -65,7 +65,11 @@ apply_config() {
 
 inhibit_command_execution() {
     if [ $show_header -eq 1 ]; then
-        echo -e "$header"
+        if [ -z "$header" ]; then
+            echo -e "$header_default"
+        else
+            echo -e "$header"
+        fi
     fi
     echo
     echo -e "${cy}Warning!$cn The '${cc}$inhibit_command${cn}'"\
