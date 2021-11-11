@@ -2,9 +2,9 @@
 CHANGELOG (Inhibit)
 
     Next release (oustanding)
-    
+
         + Added the feature to allow multiple tries to confirm the hostname
-          or sequence).
+          (or sequence).
         + Added the feature to set a custom output header.
 
         * Revised some output messages in general.
