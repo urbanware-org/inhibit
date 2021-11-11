@@ -31,16 +31,6 @@ header_default="
 ####  ##    ##  ##    ##  ####  #######   ####     ##     ########  #######"
 
 apply_config() {
-    if [ "$use_colors" = "1" ]; then
-        cn="\e[0m"      # none (default color)
-        cc="\e[1;36m"   # cyan
-        cg="\e[1;32m"   # green
-        cr="\e[1;31m"   # red
-        cy="\e[1;33m"   # yellow
-    else
-        use_colors=0
-    fi
-
     if [ ! "$use_random" = "1" ]; then
         use_random=0
     fi
@@ -54,12 +44,35 @@ apply_config() {
         random_upper=0
     fi
 
+    if [ ! "$max_tries" = "1" ]; then
+        max_tries="$max_tries"
+        if [ $max_tries -lt 1 ]; then
+            max_tries=1
+        elif [ $max_tries -gt 10 ]; then
+            max_tries=10
+        fi
+    fi
+
     if [ ! "$inhibit_given_services" = "1" ]; then
         inhibit_given_services=0
     fi
 
     if [ ! "$show_header" = "1" ]; then
         show_header=0
+    fi
+
+    if [ ! -z "$header" ]; then
+        header="$header"
+    fi
+
+    if [ "$use_colors" = "1" ]; then
+        cn="\e[0m"      # none (default color)
+        cc="\e[1;36m"   # cyan
+        cg="\e[1;32m"   # green
+        cr="\e[1;31m"   # red
+        cy="\e[1;33m"   # yellow
+    else
+        use_colors=0
     fi
 }
 
