@@ -20,7 +20,6 @@ random_count=8
 random_upper=0
 services=""
 inhibit_given_services=1
-
 header_default="
 ####  ##    ##  ##    ##  ####  #######   ####  ########  ########  #######
  ##   ###   ##  ##    ##   ##   ##    ##   ##      ##     ##        ##    ##
