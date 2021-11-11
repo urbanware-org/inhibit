@@ -1,7 +1,7 @@
 
 CHANGELOG (Inhibit)
 
-    Next release (oustanding)
+    Version 1.3.0 (2021-11-11)
 
         + Added the feature to allow multiple tries to confirm the hostname
           (or sequence).
