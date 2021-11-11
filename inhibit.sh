@@ -42,7 +42,7 @@ else
 fi
 
 if [[ $inhibit_command == *inhibit.sh* ]]; then
-    usage "Inhibiting the script itself? This does not make any sense"
+    usage "Inhibiting the script itself does not make any sense"
 fi
 
 if [[ $inhibit_command == *systemctl* ]]; then
