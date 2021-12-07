@@ -1,0 +1,9 @@
+This directory contains different headers that can be used as a custom header text. You can find the corresponding 'header' option inside the 'inhibit.conf' file. In case no header is set, Inhibit will use the default one.
+
+All those headers were created using FIGlet.
+
+    File:   inhibit_default.txt
+    Font:   banner3
+
+    File:   inhibit_legacy.txt      (default header from version 1.2.0)
+    Font:   standard
