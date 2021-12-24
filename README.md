@@ -36,6 +36,8 @@ However, checking the status of a service (using `systemctl status`) does not re
 
 ## Usage
 
+### Preventing shell commands
+
 Now, to e.g. prevent the accidental execution of the `shutdown`, `poweroff`, `halt` and `reboot` commands, add the following lines either to `/etc/bashrc` (system wide) or `~/.bashrc` (for the current user, only).
 
 In the following examples `inhibit.sh` is located in `/opt/inhibit`.
@@ -54,6 +56,8 @@ You can also give command-line arguments for the inhibited command, for example:
 alias poweroff='/opt/inhibit/inhibit.sh poweroff -f'
 ```
 
+### Preventing `systemctl` related commands
+
 As already mentioned above, you can also inhibit commands for services controlled by `systemctl`.
 
 ```bash
@@ -68,7 +72,37 @@ After adding the preferred aliases, you can apply the changes either by logging 
 $ source ~/.bashrc
 ```
 
-Now, if you have to execute one of the given commands, you will explicitly have to confirm the execution.
+### Example
+
+For example, if you have added the line
+
+```bash
+alias poweroff='/opt/inhibit/inhibit.sh poweroff -f'
+```
+
+to your `.bashrc` file and reloaded it (either manually using the `source` command or automatically by login) and try to execute the `poweroff` command, the following confirmation prompt will appear.
+
+
+```
+
+####  ##    ##  ##    ##  ####  #######   ####  ########  ########  #######
+ ##   ###   ##  ##    ##   ##   ##    ##   ##      ##     ##        ##    ##
+ ##   ####  ##  ##    ##   ##   ##    ##   ##      ##     ##        ##    ##
+ ##   ## ## ##  ########   ##   #######    ##      ##     ######    ##    ##
+ ##   ##  ####  ##    ##   ##   ##    ##   ##      ##     ##        ##    ##
+ ##   ##   ###  ##    ##   ##   ##    ##   ##      ##     ##        ##    ##
+####  ##    ##  ##    ##  ####  #######   ####     ##     ########  #######
+
+Warning! The 'poweroff' command has been inhibited!
+
+In order to proceed you have to confirm the process.
+
+Hostname: foobar-host
+Confirm:
+
+```
+
+So, the command will only be executed if the confirmation was successful.
 
 [Top](#inhibit)
 
