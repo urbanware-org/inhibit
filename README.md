@@ -12,7 +12,7 @@
 
 Script to prevent accidental execution of critical commands, e.g. to shutdown or reboot the system by prompting the user to enter its hostname.
 
-[Top](#inhibit)
+[Top](#inhibit-)
 
 ## Details
 
@@ -32,7 +32,7 @@ This also applies to services controlled by `systemctl`. You can use *Inhibit* t
 
 However, checking the status of a service (using `systemctl status`) does not require any confirmation as this is harmless.
 
-[Top](#inhibit)
+[Top](#inhibit-)
 
 ## Usage
 
@@ -104,7 +104,7 @@ Confirm:
 
 So, the command will only be executed if the confirmation was successful.
 
-[Top](#inhibit)
+[Top](#inhibit-)
 
 ## Contact
 
@@ -114,4 +114,4 @@ You can contact me by sending an email to [dev@urbanware.org](mailto:dev@urbanwa
 
 Further information can be found inside the `CONTACT` file.
 
-[Top](#inhibit)
+[Top](#inhibit-)
