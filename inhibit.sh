@@ -20,8 +20,11 @@ source ${script_dir}/core/common.sh
 source ${script_dir}/core/systemctl.sh
 
 config_file="$script_dir/inhibit.conf"
+config_missing=0
 if [ -f "$config_file" ]; then
     source $config_file
+else
+    config_missing=1
 fi
 apply_config
 
