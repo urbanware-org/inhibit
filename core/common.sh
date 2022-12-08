@@ -142,7 +142,7 @@ random_string() {
 
 usage() {
     error_msg="$1"
-    usage="usage: $script_file"
+    usage="${cc}usage:${cn} $script_file"
     echo -e "$usage \"COMMAND\" [--version]"
     if [ ! -z "$error_msg" ]; then
         echo
