@@ -33,6 +33,11 @@ else
     inhibit_command="$@"
 fi
 
+command -v $inhibit_command &>/dev/null
+if [ $? -ne 0 ]; then
+    usage "The given command does not exist"
+fi
+
 if [ $use_random -eq 1 ]; then
     random_string
     confirm_type="Sequence"
