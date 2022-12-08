@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-# ============================================================================
+#
 # Inhibit - Prevent accidental execution of certain commands
 # Service control core module
-# Copyright (C) 2021 by Ralf Kilian
+# Copyright (c) 2022 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
 # GitHub: https://github.com/urbanware-org/inhibit
 # GitLab: https://gitlab.com/urbanware-org/inhibit
-# ============================================================================
+#
 
 inhibit_service_control() {
     if [ -z "$services" ] ||
