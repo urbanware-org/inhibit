@@ -12,14 +12,6 @@
 
 version="1.2.0"
 
-# Defaults for the configuration options in case the config file is missing.
-# Do not change any of the values below.
-use_colors=1
-use_random=0
-random_count=8
-random_upper=0
-services=""
-inhibit_given_services=1
 header_default="
 ####  ##    ##  ##    ##  ####  #######   ####  ########  ########  #######
  ##   ###   ##  ##    ##   ##   ##    ##   ##      ##     ##        ##    ##
@@ -30,38 +22,52 @@ header_default="
 ####  ##    ##  ##    ##  ####  #######   ####     ##     ########  #######"
 
 apply_config() {
-    if [ ! "$use_random" = "1" ]; then
+    if [ $config_missing -eq 1 ]; then
+        # Defaults for the configuration options in case the config file is
+        # missing. Do not change any of the values below.
         use_random=0
-    fi
-
-    regex='^[0-9]+$'
-    if [[ ! $random_count =~ $regex ]]; then
         random_count=8
-    fi
-
-    if [ ! "$random_upper" = "1" ]; then
         random_upper=0
-    fi
-
-    if [ ! "$max_tries" = "1" ]; then
-        max_tries="$max_tries"
-        if [ $max_tries -lt 1 ]; then
-            max_tries=1
-        elif [ $max_tries -gt 10 ]; then
-            max_tries=10
+        max_tries=1
+        services=""
+        inhibit_given_services=1
+        show_header=1
+        header=""
+        use_colors=1
+    else
+        if [ ! "$use_random" = "1" ]; then
+            use_random=0
         fi
-    fi
 
-    if [ ! "$inhibit_given_services" = "1" ]; then
-        inhibit_given_services=0
-    fi
+        regex='^[0-9]+$'
+        if [[ ! $random_count =~ $regex ]]; then
+            random_count=8
+        fi
 
-    if [ ! "$show_header" = "1" ]; then
-        show_header=0
-    fi
+        if [ ! "$random_upper" = "1" ]; then
+            random_upper=0
+        fi
 
-    if [ ! -z "$header" ]; then
-        header="$header"
+        if [ ! "$max_tries" = "1" ]; then
+            max_tries="$max_tries"
+            if [ $max_tries -lt 1 ]; then
+                max_tries=1
+            elif [ $max_tries -gt 10 ]; then
+                max_tries=10
+            fi
+        fi
+
+        if [ ! "$inhibit_given_services" = "1" ]; then
+            inhibit_given_services=0
+        fi
+
+        if [ ! "$show_header" = "1" ]; then
+            show_header=0
+        fi
+
+        if [ ! -z "$header" ]; then
+            header="$header"
+        fi
     fi
 
     if [ "$use_colors" = "1" ]; then
