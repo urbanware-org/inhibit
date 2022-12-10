@@ -1,9 +1,17 @@
 This directory contains different headers that can be used as a custom header text. You can find the corresponding 'header' option inside the 'inhibit.conf' file. In case no header is set, Inhibit will use the default one.
 
-All those headers were created using FIGlet.
+All those headers were created using FIGlet. For an overwiew of the FIGlet fonts, you may have a look at the ASCII Figlet Generator by AskApache (https://www.askapache.com/online-tools/figlet-ascii).
+
+Included header text files:
+
+    File:   inhibit_blocks.txt
+    Font:   banner3 (replaced hash character '#' with UTF-8 block element '█')
+
+    File:   inhibit_blocks_frame.txt
+    Font:   banner3 (same as 'inhibit_blocks.txt' with UTF-8 character frame)
 
     File:   inhibit_default.txt
     Font:   banner3
 
-    File:   inhibit_legacy.txt      (default header from version 1.2.0)
+    File:   inhibit_legacy.txt (default header from version 1.2.0)
     Font:   standard
