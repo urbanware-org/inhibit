@@ -83,7 +83,7 @@ apply_config() {
 
 confirm_string() {
     echo
-    echo -e "${cc}$confirm_type:${cn} $confirm_string"
+    echo -e "${cc}${confirm_type}:${cn} ${confirm_string}"
     echo -e "${cc}Confirm:${cn}  \c"
     read user_input
     echo
@@ -101,7 +101,7 @@ inhibit_command_execution() {
         fi
     fi
     echo
-    echo -e "${cy}Warning!$cn The '${cc}$inhibit_command${cn}'"\
+    echo -e "${cy}Warning!$cn The '${cc}${inhibit_command}${cn}'"\
             "command has been ${cr}inhibited${cn}!"
     echo
     echo "In order to proceed you have to confirm the process."
