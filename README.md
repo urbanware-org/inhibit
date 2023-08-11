@@ -105,9 +105,9 @@ So, the command will only be executed if the confirmation was successful.
 
 ### Customization
 
-The header can be fully customized and colorized using *Bash* color codes
+The header can be fully customized and colorized using *Bash* color codes.
 
-For example, using different characters:
+For example, by using different characters for the letters and adding a frame around:
 
 ```
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
