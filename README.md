@@ -82,7 +82,6 @@ alias poweroff='/opt/inhibit/inhibit.sh poweroff -f'
 
 to your `.bashrc` file and reload it (e.g. manually using the `source` command or automatically by login) and try to execute the `poweroff` command, the following confirmation prompt will appear.
 
-
 ```
 
 ####  ##    ##  ##    ##  ####  #######   ####  ########  ########  #######
@@ -103,6 +102,24 @@ Confirm:
 ```
 
 So, the command will only be executed if the confirmation was successful.
+
+### Customization
+
+The header can be fully customized and colorized using *Bash* color codes
+
+For example, using different characters:
+
+```
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃    ████ ██    ██ ██    ██ ████ ███████  ████ ████████ ████████ ███████     ┃
+┃     ██  ███   ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
+┃     ██  ████  ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
+┃     ██  ██ ██ ██ ████████  ██  ███████   ██     ██    ██████   ██    ██    ┃
+┃     ██  ██  ████ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
+┃     ██  ██   ███ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
+┃    ████ ██    ██ ██    ██ ████ ███████  ████    ██    ████████ ███████     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
 
 [Top](#inhibit-)
 
