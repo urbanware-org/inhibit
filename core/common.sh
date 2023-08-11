@@ -95,9 +95,9 @@ confirm_string() {
 inhibit_command_execution() {
     if [ $show_header -eq 1 ]; then
         if [ -z "$header" ]; then
-            echo -e "$header_default"
+            echo -e "${header_default}\e[0m"
         else
-            echo -e "$header"
+            echo -e "${header}\e[0m"
         fi
     fi
     echo
