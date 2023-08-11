@@ -121,6 +121,25 @@ For example, by using different characters for the letters and adding a frame ar
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```
 
+You can set a custom header inside the config file `inhibit.conf` by simply adding it as string, including color codes as mentioned above.
+
+For example, to display the whole header in red, start the string with the corresponding color code:
+
+```bash
+header="\e[1;31m
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃    ████ ██    ██ ██    ██ ████ ███████  ████ ████████ ████████ ███████     ┃
+┃     ██  ███   ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
+┃     ██  ████  ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
+┃     ██  ██ ██ ██ ████████  ██  ███████   ██     ██    ██████   ██    ██    ┃
+┃     ██  ██  ████ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
+┃     ██  ██   ███ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
+┃    ████ ██    ██ ██    ██ ████ ███████  ████    ██    ████████ ███████     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+```
+
+As this is nothing different than a string processed by the *Bash* shell, there also can be multiple color codes allowing different colors in the same header.
+
 [Top](#inhibit-)
 
 ## Contact
