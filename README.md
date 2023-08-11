@@ -74,13 +74,13 @@ $ source ~/.bashrc
 
 ### Example
 
-For example, if you have added the line
+For example, if you add the line
 
 ```bash
 alias poweroff='/opt/inhibit/inhibit.sh poweroff -f'
 ```
 
-to your `.bashrc` file and reloaded it (either manually using the `source` command or automatically by login) and try to execute the `poweroff` command, the following confirmation prompt will appear.
+to your `.bashrc` file and reload it (e.g. manually using the `source` command or automatically by login) and try to execute the `poweroff` command, the following confirmation prompt will appear.
 
 
 ```
