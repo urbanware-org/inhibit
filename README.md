@@ -110,6 +110,8 @@ So, the command will only be executed if the confirmation was successful.
 
 The header can be fully customized and colorized with *Bash* color codes.
 
+### Header text
+
 For example, by using different characters for the letters and adding a frame around:
 
 ```
@@ -157,6 +159,21 @@ header="\e[31m
 ┃\e[91m    ████ ██    ██ ██    ██ ████ ███████  ████    ██    ████████ ███████     \e[31m┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
 ```
+
+### Color codes
+
+| Code  | Dark colors         | Code  | Light colors |
+| ----- | ------------------- | ----- | ------------ |
+| `30m` | Black               | `97m` | White        |
+| `33m` | Brown (dark yellow) | `93m` | Yellow       |
+| `34m` | Dark blue           | `94m` | Light blue   |
+| `36m` | Dark cyan           | `96m` | Light cyan   |
+| `90m` | Dark gray           | `37m` | Light gray   |
+| `32m` | Dark green          | `92m` | Light green  |
+| `35m` | Dark purple         | `95m` | Light purple |
+| `31m` | Dark red            | `91m` | Light red    |
+
+You can use `0m` to reset the color to the default one used by the shell.
 
 [Top](#inhibit-)
 
