@@ -60,8 +60,9 @@ README (Inhibit)
 
             $ source ~/.bashrc
 
-        Now, if you have to execute one of the given commands, you will
-        explicitly have to confirm the execution.
+        Now, if you want to execute one of those commands for which you have
+        set up (created aliases for) Inhibit, you will explicitly have to
+        confirm their execution.
 
     Contact
 
