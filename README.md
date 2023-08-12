@@ -4,6 +4,7 @@
 *   [Definition](#definition)
 *   [Details](#details)
 *   [Usage](#usage)
+*   [Customization](#customization)
 *   [Contact](#contact)
 
 ----
@@ -103,7 +104,9 @@ Confirm:
 
 So, the command will only be executed if the confirmation was successful.
 
-### Customization
+[Top](#inhibit-)
+
+## Customization
 
 The header can be fully customized and colorized with *Bash* color codes.
 
@@ -121,7 +124,7 @@ For example, by using different characters for the letters and adding a frame ar
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```
 
-You can set a custom header inside the config file `inhibit.conf` by simply adding it as string, including color codes as mentioned above.
+You can set the custom header inside the config file `inhibit.conf` by simply adding it as string into the `header` variable, including color codes as mentioned above.
 
 For example, to display the whole header in red, start the string with the corresponding color code:
 
