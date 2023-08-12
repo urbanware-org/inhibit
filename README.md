@@ -140,6 +140,21 @@ header="\e[91m
 
 As this is nothing different than a string processed by the *Bash* shell, there also can be multiple color codes allowing different colors in the same header.
 
+For example, letters in light red with a dark red frame around:
+
+```bash
+header="\e[31m
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃\e[91m    ████ ██    ██ ██    ██ ████ ███████  ████ ████████ ████████ ███████     \e[31m┃
+┃\e[91m     ██  ███   ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    \e[31m┃
+┃\e[91m     ██  ████  ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    \e[31m┃
+┃\e[91m     ██  ██ ██ ██ ████████  ██  ███████   ██     ██    ██████   ██    ██    \e[31m┃
+┃\e[91m     ██  ██  ████ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    \e[31m┃
+┃\e[91m     ██  ██   ███ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    \e[31m┃
+┃\e[91m    ████ ██    ██ ██    ██ ████ ███████  ████    ██    ████████ ███████     \e[31m┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+```
+
 [Top](#inhibit-)
 
 ## Contact
