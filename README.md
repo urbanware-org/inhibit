@@ -126,7 +126,7 @@ You can set a custom header inside the config file `inhibit.conf` by simply addi
 For example, to display the whole header in red, start the string with the corresponding color code:
 
 ```bash
-header="\e[1;31m
+header="\e[91m
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃    ████ ██    ██ ██    ██ ████ ███████  ████ ████████ ████████ ███████     ┃
 ┃     ██  ███   ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
