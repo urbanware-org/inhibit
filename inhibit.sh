@@ -17,6 +17,8 @@
 script_dir=$(dirname $(readlink -f $0))
 script_file=$(basename "$0")
 source ${script_dir}/core/common.sh
+source ${script_dir}/core/dialogs.sh
+source ${script_dir}/core/shell.sh
 source ${script_dir}/core/systemctl.sh
 
 config_file="$script_dir/inhibit.conf"
