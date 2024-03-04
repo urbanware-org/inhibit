@@ -25,6 +25,7 @@ apply_config() {
         show_header=1
         header=""
         use_colors=1
+        use_dialogs=0
     else
         if [ ! "$use_random" = "1" ]; then
             use_random=0
@@ -69,6 +70,12 @@ apply_config() {
         cy="\e[1;33m"   # yellow
     else
         use_colors=0
+    fi
+
+    if [ "$use_dialogs" = "1" ]; then
+        use_dialogs=1
+    else
+        use_dialogs=0
     fi
 }
 
