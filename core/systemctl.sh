@@ -36,7 +36,6 @@ inhibit_service_control() {
         done
         if [ $match -eq 0 ]; then
             inhibit_command_execution
-            break
         fi
     fi
 }
