@@ -58,7 +58,11 @@ fi
 if [[ $inhibit_command == *systemctl* ]]; then
     inhibit_service_control
 else
-    inhibit_command_execution
+    if [ $use_dialogs -eq 1 ]; then
+        inhibit_command_execution_dialog
+    else
+        inhibit_command_execution
+    fi
 fi
 
 # EOF
