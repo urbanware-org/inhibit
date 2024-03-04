@@ -22,7 +22,11 @@ inhibit_service_control() {
     if [ $inhibit_given_services -eq 1 ]; then
         for service in $services; do
             if [[ $inhibit_command =~ "$service" ]]; then
-                inhibit_command_execution
+                if [ $use_dialogs -eq 1 ]; then
+                    inhibit_command_execution_dialog
+                else
+                    inhibit_command_execution
+                fi
                 break
             fi
         done
@@ -35,7 +39,11 @@ inhibit_service_control() {
             fi
         done
         if [ $match -eq 0 ]; then
-            inhibit_command_execution
+            if [ $use_dialogs -eq 1 ]; then
+                inhibit_command_execution_dialog
+            else
+                inhibit_command_execution
+            fi
         fi
     fi
 }
