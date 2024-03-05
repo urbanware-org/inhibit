@@ -29,8 +29,8 @@ inhibit_command_execution_dialog() {
 
     while [ $tries -gt 0 ]; do
         user_input=$(dialog --colors --title "Confirm execution" \
-                            --ok-label "Confirm" --inputbox "$dlg_text" \
-                            18 74 --output-fd 1)
+                            --ok-label "Confirm" --cancel-label "Cancel" \
+                            --inputbox "$dlg_text" 18 74 --output-fd 1)
 
         if [ $? -eq 1 ]; then
             # Exit the program without any dialog feedback
