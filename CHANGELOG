@@ -5,6 +5,8 @@ CHANGELOG (Inhibit)
 
         + Added some custom headers.
         + Added the check if the given command (to inhibit) exists.
+        + Added the optional feature to use interactive dialogs to confirm the
+          execution of the given command (instead of pure shell output).
         + Added the separate function to apply the values from the config file
           or load the default values in case it is missing.
 
