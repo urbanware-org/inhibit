@@ -4,7 +4,7 @@ CHANGELOG (Inhibit)
     Version 1.4.0 (2024-03-06)
 
         + Added some additional custom headers.
-        + Added the check if the given command (to inhibit) exists.
+        + Added the check if the given command (to inhibit) exists at all.
         + Added the optional feature to use interactive dialogs to confirm the
           execution of the given command (instead of pure shell output).
         + Added the separate function to apply the values from the config file
