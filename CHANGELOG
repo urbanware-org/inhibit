@@ -1,9 +1,9 @@
 
 CHANGELOG (Inhibit)
 
-    Next release (outstanding)
+    Version 1.4.0 (2024-03-06)
 
-        + Added some custom headers.
+        + Added some additional custom headers.
         + Added the check if the given command (to inhibit) exists.
         + Added the optional feature to use interactive dialogs to confirm the
           execution of the given command (instead of pure shell output).
