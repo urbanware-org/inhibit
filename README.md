@@ -4,7 +4,6 @@
 *   [Definition](#definition)
 *   [Details](#details)
 *   [Usage](#usage)
-*   [Customization](#customization)
 *   [Contact](#contact)
 
 ----
@@ -104,76 +103,7 @@ Confirm:
 
 So, the command will only be executed if the confirmation was successful.
 
-[Top](#inhibit-)
-
-## Customization
-
-The header can be fully customized and colorized with *Bash* color codes.
-
-### Header text
-
-For example, by using different characters for the letters and adding a frame around:
-
-```
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃    ████ ██    ██ ██    ██ ████ ███████  ████ ████████ ████████ ███████     ┃
-┃     ██  ███   ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
-┃     ██  ████  ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
-┃     ██  ██ ██ ██ ████████  ██  ███████   ██     ██    ██████   ██    ██    ┃
-┃     ██  ██  ████ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
-┃     ██  ██   ███ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
-┃    ████ ██    ██ ██    ██ ████ ███████  ████    ██    ████████ ███████     ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-```
-
-You can set the custom header inside the config file `inhibit.conf` by simply adding it as string into the `header` variable, including color codes as mentioned above.
-
-For example, to display the whole header in red, start the string with the corresponding color code:
-
-```bash
-header="\e[91m
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃    ████ ██    ██ ██    ██ ████ ███████  ████ ████████ ████████ ███████     ┃
-┃     ██  ███   ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
-┃     ██  ████  ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
-┃     ██  ██ ██ ██ ████████  ██  ███████   ██     ██    ██████   ██    ██    ┃
-┃     ██  ██  ████ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
-┃     ██  ██   ███ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    ┃
-┃    ████ ██    ██ ██    ██ ████ ███████  ████    ██    ████████ ███████     ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
-```
-
-As this is nothing different than a string processed by the *Bash* shell, there also can be multiple color codes allowing different colors in the same header.
-
-For example, letters in light red with a dark red frame around:
-
-```bash
-header="\e[31m
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃\e[91m    ████ ██    ██ ██    ██ ████ ███████  ████ ████████ ████████ ███████     \e[31m┃
-┃\e[91m     ██  ███   ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    \e[31m┃
-┃\e[91m     ██  ████  ██ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    \e[31m┃
-┃\e[91m     ██  ██ ██ ██ ████████  ██  ███████   ██     ██    ██████   ██    ██    \e[31m┃
-┃\e[91m     ██  ██  ████ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    \e[31m┃
-┃\e[91m     ██  ██   ███ ██    ██  ██  ██    ██  ██     ██    ██       ██    ██    \e[31m┃
-┃\e[91m    ████ ██    ██ ██    ██ ████ ███████  ████    ██    ████████ ███████     \e[31m┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
-```
-
-### Color codes
-
-| Code  | Dark colors         |   | Code  | Light colors |
-| ----- | ------------------- | - | ----- | ------------ |
-| `30m` | Black               |   | `97m` | White        |
-| `33m` | Brown (dark yellow) |   | `93m` | Yellow       |
-| `34m` | Dark blue           |   | `94m` | Light blue   |
-| `36m` | Dark cyan           |   | `96m` | Light cyan   |
-| `90m` | Dark gray           |   | `37m` | Light gray   |
-| `32m` | Dark green          |   | `92m` | Light green  |
-| `35m` | Dark purple         |   | `95m` | Light purple |
-| `31m` | Dark red            |   | `91m` | Light red    |
-
-You can use `0m` to reset the color to the default one used by the shell.
+The header can also be customized. Details can be found [here](https://github.com/urbanware-org/inhibit/wiki#customization).
 
 [Top](#inhibit-)
 
