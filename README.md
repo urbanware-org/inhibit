@@ -96,7 +96,7 @@ Warning! The 'poweroff' command has been inhibited!
 
 In order to proceed you have to confirm the process.
 
-Hostname: foobar-host
+Hostname: foobar
 Confirm:
 
 ```
