@@ -103,7 +103,7 @@ Confirm:
 
 So, the command will only be executed if the confirmation was successful.
 
-The header can also be customized. Details can be found [here](https://github.com/urbanware-org/inhibit/wiki/Customization).
+The header can also be [customized](https://github.com/urbanware-org/inhibit/wiki/Customization) and there also is an [interactive dialog](https://github.com/urbanware-org/inhibit/wiki#interactive-dialogs) feature.
 
 [Top](#inhibit-)
 
