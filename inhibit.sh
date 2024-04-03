@@ -59,7 +59,12 @@ if [[ $inhibit_command == *systemctl* ]]; then
     inhibit_service_control
 else
     if [ $use_dialogs -eq 1 ]; then
-        inhibit_command_execution_dialog
+        command -v dialog &>/dev/null
+        if [ $? -eq 0 ]; then
+            inhibit_command_execution_dialog
+        else
+            usage "The required tool 'dialog' does not seem to be installed"
+        fi
     else
         inhibit_command_execution
     fi
