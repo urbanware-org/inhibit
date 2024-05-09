@@ -43,7 +43,7 @@ inhibit_command_execution_dialog() {
     tries=$max_tries
 
     while [ $tries -gt 0 ]; do
-        user_input=$(dialog --colors --title "Confirm execution" \
+        user_input=$(dialog --colors --title "Confirm execution" $dlg_shadow \
                             --ok-label "Confirm" --cancel-label "Cancel" \
                             --inputbox "$dlg_text" $dlg_height 74 \
                             --output-fd 1)
@@ -61,7 +61,7 @@ inhibit_command_execution_dialog() {
 
         tries=$(( tries - 1 ))
         if [ $tries -gt 0 ]; then
-            dialog --colors --title "Confirmation failure" \
+            dialog --colors $dlg_shadow --title "Confirmation failure" \
                    --msgbox "$dlg_failed" 7 38
             continue
         else
@@ -71,13 +71,13 @@ inhibit_command_execution_dialog() {
     clear
 
     if [ $success -eq 1 ]; then
-        dialog --colors --title "Confirmation successful" \
+        dialog --colors $dlg_shadow --title "Confirmation successful" \
                --infobox "\nConfirmation \Z2successful\Z0. Proceeding." 5 40
         sleep 1
         clear
         $inhibit_command
     else
-        dialog --colors --title "Confirmation failure" \
+        dialog --colors $dlg_shadow --title "Confirmation failure" \
                --msgbox "$dlg_canceled" 7 42
         clear
     fi
