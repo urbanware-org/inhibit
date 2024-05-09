@@ -26,6 +26,7 @@ apply_config() {
         header=""
         use_colors=1
         use_dialogs=0
+        dialog_shadow=1
     else
         if [ ! "$use_random" = "1" ]; then
             use_random=0
@@ -72,10 +73,14 @@ apply_config() {
         use_colors=0
     fi
 
-    if [ "$use_dialogs" = "1" ]; then
-        use_dialogs=1
-    else
+    if [ ! "$use_dialogs" = "1" ]; then
         use_dialogs=0
+    fi
+
+    if [ "$dialog_shadow" = "1" ]; then
+        dlg_shadow=""
+    else
+        dlg_shadow="--no-shadow"
     fi
 }
 
