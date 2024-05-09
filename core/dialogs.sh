@@ -70,8 +70,11 @@ inhibit_command_execution_dialog() {
     done
     clear
 
-     if [ $success -eq 1 ]; then
-        # Execute the command without any dialog feedback
+    if [ $success -eq 1 ]; then
+        dialog --colors --title "Confirmation successful" \
+               --infobox "\nConfirmation \Z2successful\Z0. Proceeding." 5 40
+        sleep 1
+        clear
         $inhibit_command
     else
         dialog --colors --title "Confirmation failure" \
