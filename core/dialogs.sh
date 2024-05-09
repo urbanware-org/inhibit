@@ -14,11 +14,26 @@ inhibit_command_execution_dialog() {
 
     confirm_type_lc=$(tr '[:upper:]' '[:lower:]' <<< $confirm_type)
 
-    dlg_head="                      \Z1■   W A R N I N G !   ■\Z0"
+    local_ip="$(xargs <<< $(hostname -I))"
+    if [[ "$local_ip" == *" "* ]]; then
+        dlg_local_ip="\Z4Local IP addresses:\Z0 $local_ip\n"
+    else
+        dlg_local_ip="\Z4Local IP address:\Z0 $local_ip\n"
+    fi
+    if [ ! "$confirm_type" = "Hostname" ]; then
+        dlg_hostname="\Z4Hostname:\Z0 $(hostname -s)\n"
+        dlg_height=20
+    else
+        dlg_height=19
+    fi
+
+    dlg_head="         \Z1■■■■■■■■■■■■■■   W A R N I N G !   ■■■■■■■■■■■■■■\Z0"
     dlg_text=$(echo "\n$dlg_head\n\nThe '\Z4$inhibit_command\Z0'" \
                     "command has been \Z1inhibited\Z0!\n\nIn order to" \
                     "proceed you have to confirm the process by entering" \
-                    "the $confirm_type_lc below. \n\n\Z2→\Z0$confirm_string")
+                    "the $confirm_type_lc below. " \
+                    "\n\n${dlg_local_ip}${dlg_hostname}" \
+                    "\n\Z2→\Z0$confirm_string")
 
     dlg_failed=$(echo "\nConfirmation \Z1failed\Z0. Please retry.\n")
     dlg_canceled=$(echo "\nConfirmation \Z1failed\Z0. Process" \
@@ -30,7 +45,8 @@ inhibit_command_execution_dialog() {
     while [ $tries -gt 0 ]; do
         user_input=$(dialog --colors --title "Confirm execution" \
                             --ok-label "Confirm" --cancel-label "Cancel" \
-                            --inputbox "$dlg_text" 18 74 --output-fd 1)
+                            --inputbox "$dlg_text" $dlg_height 74 \
+                            --output-fd 1)
 
         if [ $? -eq 1 ]; then
             # Exit the program without any dialog feedback
