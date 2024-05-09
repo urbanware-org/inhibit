@@ -20,7 +20,6 @@ header_default="
 ####  ##    ##  ##    ##  ####  #######   ####     ##     ########  #######"
 
 confirm_string() {
-    echo
     echo -e "${cc}${confirm_type}:${cn} ${confirm_string}"
     echo -e "${cc}Confirm:${cn}  \c"
     read user_input
@@ -47,6 +46,7 @@ inhibit_command_execution() {
     success=0
     tries=$max_tries
     while [ $tries -gt 0 ]; do
+        echo
         confirm_string
         if [ $success -eq 1 ]; then
             break
