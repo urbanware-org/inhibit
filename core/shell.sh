@@ -42,6 +42,16 @@ inhibit_command_execution() {
             "command has been ${cr}inhibited${cn}!"
     echo
     echo "In order to proceed you have to confirm the process."
+    echo
+    local_ip="$(xargs <<< $(hostname -I))"
+    if [[ "$local_ip" == *" "* ]]; then
+        echo -e "${cc}Local IP addresses:${cn} $local_ip"
+    else
+        echo -e "${cc}Local IP address:${cn} $local_ip"
+    fi
+    if [ ! "$confirm_type" = "Hostname" ]; then
+        echo -e "${cc}Hostname:${cn} $(hostname -s)"
+    fi
 
     success=0
     tries=$max_tries
