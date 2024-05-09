@@ -49,9 +49,7 @@ inhibit_command_execution_dialog() {
                             --output-fd 1)
 
         if [ $? -eq 1 ]; then
-            # Exit the program without any dialog feedback
-            clear
-            exit
+            break
         fi
 
         if [ "$user_input" = "$confirm_string" ]; then
