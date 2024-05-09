@@ -1,6 +1,15 @@
 
 CHANGELOG (Inhibit)
 
+    Next release (outstanding)
+
+        + Added the hostname and IP address to the confirmation notice.
+        + Added the option to enable and disable dialog shadows (when using
+          such).
+
+        * Revised the dialog related code as well as some code in general
+          (negligible changes).
+
     Version 1.4.0 (2024-03-06)
 
         + Added some additional custom headers.
