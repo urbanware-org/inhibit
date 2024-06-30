@@ -55,16 +55,18 @@ if [[ $inhibit_command == *inhibit.sh* ]]; then
     usage "Inhibiting the script itself does not make any sense"
 fi
 
+if [ $use_dialogs -eq 1 ]; then
+    command -v dialog &>/dev/null
+    if [ $? -ne 0 ]; then
+        usage "The required tool 'dialog' does not seem to be installed"
+    fi
+fi
+
 if [[ $inhibit_command == *systemctl* ]]; then
     inhibit_service_control
 else
     if [ $use_dialogs -eq 1 ]; then
-        command -v dialog &>/dev/null
-        if [ $? -eq 0 ]; then
-            inhibit_command_execution_dialog
-        else
-            usage "The required tool 'dialog' does not seem to be installed"
-        fi
+        inhibit_command_execution_dialog
     else
         inhibit_command_execution
     fi
