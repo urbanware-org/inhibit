@@ -20,6 +20,7 @@ apply_config() {
         random_count=8
         random_upper=0
         max_tries=1
+        notify_wall=0
         services=""
         inhibit_given_services=1
         show_header=1
@@ -52,6 +53,10 @@ apply_config() {
 
         if [ ! "$inhibit_given_services" = "1" ]; then
             inhibit_given_services=0
+        fi
+
+        if [ ! "$notify_wall" = "1" ]; then
+            notify_wall=0
         fi
 
         if [ ! "$show_header" = "1" ]; then
