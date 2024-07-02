@@ -1,12 +1,14 @@
 
 CHANGELOG (Inhibit)
 
-    Next release (outstanding)
+    Version 1.4.1 (2024-07-02)
 
         + Added the hostname and IP address to the confirmation notice.
-        + Added the option to enable and disable dialog shadows (when using
-          such).
+        + Added the option to enable or disable dialog shadows.
+        + Added the option to send a notification (broadcast message) upon an
+          inhibited command execution.
 
+        * Revised the config file (reorganized some options).
         * Revised the dialog related code as well as some code in general
           (negligible changes).
 
