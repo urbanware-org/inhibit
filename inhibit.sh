@@ -63,13 +63,7 @@ if [ $use_dialogs -eq 1 ]; then
 fi
 
 if [ $notify_wall -eq 1 ]; then
-    message="The command '${inhibit_command}' has been"
-    if [ "$(whoami)" = "root" ]; then
-        executed_by="executed by root"
-    else
-        executed_by="executed by user '$(whoami)'"
-    fi
-    wall "Inhibit: ${message} ${executed_by} on '$(tty)'." &>/dev/null
+    notify_wall_message executed
 fi
 
 if [[ $inhibit_command == *systemctl* ]]; then
