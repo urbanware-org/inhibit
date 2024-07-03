@@ -73,11 +73,17 @@ inhibit_command_execution_dialog() {
                --infobox "\nConfirmation \Z2successful\Z0. Proceeding." 5 40
         sleep 1
         clear
+        if [ $notify_wall -eq 1 ]; then
+            notify_wall_message confirmed
+        fi
         $inhibit_command
     else
         dialog --colors $dlg_shadow --title "Confirmation failure" \
                --msgbox "$dlg_canceled" 7 42
         clear
+        if [ $notify_wall -eq 1 ]; then
+            notify_wall_message canceled
+        fi
     fi
 }
 
