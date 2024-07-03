@@ -12,6 +12,18 @@
 
 version="1.4.1"
 
+notify_wall_message() {
+    status="$1"
+
+    message="The command '${inhibit_command}' has been"
+    if [ "$(whoami)" = "root" ]; then
+        executed_by="${status} by root"
+    else
+        executed_by="$status by user '$(whoami)'"
+    fi
+    wall "Inhibit [$$]: ${message} ${executed_by} on '$(tty)'." &>/dev/null
+}
+
 apply_config() {
     if [ $config_missing -eq 1 ]; then
         # Defaults for the configuration options in case the config file is
