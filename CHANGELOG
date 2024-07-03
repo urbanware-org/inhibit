@@ -1,6 +1,12 @@
 
 CHANGELOG (Inhibit)
 
+    Next release (outstanding)
+
+        + Added some additional notifications (broadcast messages) when the
+          execution of inhibited commands were confirmed or canceled (in case
+          the notification option is enabled).
+
     Version 1.4.1 (2024-07-02)
 
         + Added the hostname and IP address to the confirmation notice.
