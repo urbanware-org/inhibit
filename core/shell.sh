@@ -40,8 +40,7 @@ inhibit_command_execution() {
     echo
     echo -e "${cy}Warning!$cn The '${cc}${inhibit_command}${cn}'"\
             "command has been ${cr}inhibited${cn}!"
-    echo
-    echo "In order to proceed you have to confirm the process."
+
     echo
     local_ip="$(xargs <<< $(hostname -I))"
     if [[ "$local_ip" == *" "* ]]; then
@@ -53,31 +52,79 @@ inhibit_command_execution() {
         echo -e "${cc}Hostname:${cn} $(hostname -s)"
     fi
 
-    success=0
-    tries=$max_tries
-    while [ $tries -gt 0 ]; do
+    if [ $use_timer -eq 1 ]; then
+        cancel=0
+        count=$(( timeout + 1 ))
+
         echo
-        confirm_string
-        if [ $success -eq 1 ]; then
-            break
+        echo -e "Press ${cy}Ctrl${cn}+${cy}I${cn} to cancel the execution" \
+                "of the command."
+        echo
+
+        stty -echo -icanon time 0 min 0
+
+        while true; do
+            key=$(dd bs=1 count=1 2>/dev/null)
+
+            if [[ $key == $'\x09' ]]; then  # Ctrl+I for "inhibit"
+                cancel=1
+                break
+            fi
+
+            count=$(( count - 1 ))
+            if [ $count -eq 0 ]; then
+                break
+            fi
+            printf "\rExecuting the command in $count seconds    "
+            printf "\r"
+            sleep 1
+        done
+
+        stty sane
+        if [ $cancel -eq 0 ]; then
+            echo -e "No keys pressed. ${cg}Proceeding${cn}.      \n"
+            if [ $notify_wall -eq 1 ]; then
+                notify_wall_message confirmed
+            fi
+            $inhibit_command  # execute inhibited command
         else
-            tries=$(( tries - 1 ))
-            if [ $tries -gt 0 ]; then
-                echo -e "Confirmation ${cr}failed${cn}. Please retry."
+            echo -e "Keys pressed. Process ${cr}canceled${cn}.   \n"
+            if [ $notify_wall -eq 1 ]; then
+                notify_wall_message canceled
             fi
         fi
-    done
-
-    if [ $success -eq 1 ]; then
-        echo -e "Confirmation ${cg}successful${cn}. Proceeding.\n"
-        if [ $notify_wall -eq 1 ]; then
-            notify_wall_message confirmed
-        fi
-        $inhibit_command  # execute inhibited command
     else
-        echo -e "Confirmation ${cr}failed${cn}. Process ${cr}canceled${cn}.\n"
-        if [ $notify_wall -eq 1 ]; then
-            notify_wall_message canceled
+        tries=$max_tries
+
+        echo
+        echo "In order to proceed you have to confirm the process."
+
+        success=0
+
+        while [ $tries -gt 0 ]; do
+            echo
+            confirm_string
+            if [ $success -eq 1 ]; then
+                break
+            else
+                tries=$(( tries - 1 ))
+                if [ $tries -gt 0 ]; then
+                    echo -e "Confirmation ${cr}failed${cn}. Please retry."
+                fi
+            fi
+        done
+
+        if [ $success -eq 1 ]; then
+            echo -e "Confirmation ${cg}successful${cn}. Proceeding.\n"
+            if [ $notify_wall -eq 1 ]; then
+                notify_wall_message confirmed
+            fi
+            $inhibit_command  # execute inhibited command
+        else
+            echo -e "Confirmation ${cr}failed${cn}. Process ${cr}canceled${cn}.\n"
+            if [ $notify_wall -eq 1 ]; then
+                notify_wall_message canceled
+            fi
         fi
     fi
 }
