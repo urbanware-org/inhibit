@@ -16,43 +16,25 @@ apply_config() {
     if [ $config_missing -eq 1 ]; then
         # Defaults for the configuration options in case the config file is
         # missing. Do not change any of the values below.
-        use_random=0
-        random_count=8
-        random_upper=0
-        max_tries=1
+        use_timer=0
         notify_wall=0
-        services=""
-        inhibit_given_services=1
         show_header=1
         header=""
         use_colors=1
         use_dialogs=0
         dialog_shadow=1
+        timeout=10
+        max_tries=1
+        use_random=0
+        random_count=8
+        random_upper=0
+        services=""
+        inhibit_given_services=1
     else
-        if [ ! "$use_random" = "1" ]; then
-            use_random=0
-        fi
+        num_regex='^[0-9]+$'
 
-        regex='^[0-9]+$'
-        if [[ ! $random_count =~ $regex ]]; then
-            random_count=8
-        fi
-
-        if [ ! "$random_upper" = "1" ]; then
-            random_upper=0
-        fi
-
-        if [ ! "$max_tries" = "1" ]; then
-            max_tries="$max_tries"
-            if [ $max_tries -lt 1 ]; then
-                max_tries=1
-            elif [ $max_tries -gt 10 ]; then
-                max_tries=10
-            fi
-        fi
-
-        if [ ! "$inhibit_given_services" = "1" ]; then
-            inhibit_given_services=0
+        if [ ! "$use_timer" = "1" ]; then
+            use_timer=0
         fi
 
         if [ ! "$notify_wall" = "1" ]; then
@@ -66,23 +48,66 @@ apply_config() {
         if [ ! -z "$header" ]; then
             header="$header"
         fi
+
+        if [ ! "$use_colors" = "1" ]; then
+            use_colors=0
+        fi
+
+        if [ ! "$use_dialogs" = "1" ]; then
+            use_dialogs=0
+        fi
+
+        if [ ! "$dialog_shadow" = "1" ]; then
+            dialog_shadow=0
+        fi
+
+        if [[ ! $timeout =~ $num_regex ]]; then
+            timeout=10
+        else
+            if [ $timeout -lt 1 ]; then
+                timeout=1
+            elif [ $timeout -gt 120 ]; then
+                timeout=120
+            fi
+        fi
+
+        if [[ ! $max_tries =~ $num_regex ]]; then
+            max_tries=10
+        else
+            if [ $max_tries -lt 1 ]; then
+                max_tries=1
+            elif [ $max_tries -gt 10 ]; then
+                max_tries=10
+            fi
+        fi
+
+        if [ ! "$use_random" = "1" ]; then
+            use_random=0
+        fi
+
+        if [[ ! $random_count =~ $num_regex ]]; then
+            random_count=8
+        fi
+
+        if [ ! "$random_upper" = "1" ]; then
+            random_upper=0
+        fi
+
+        if [ ! "$inhibit_given_services" = "1" ]; then
+            inhibit_given_services=0
+        fi
+
     fi
 
-    if [ "$use_colors" = "1" ]; then
+    if [ $use_colors -eq 1 ]; then
         cn="\e[0m"      # none (default color)
         cc="\e[1;36m"   # cyan
         cg="\e[1;32m"   # green
         cr="\e[1;31m"   # red
         cy="\e[1;33m"   # yellow
-    else
-        use_colors=0
     fi
 
-    if [ ! "$use_dialogs" = "1" ]; then
-        use_dialogs=0
-    fi
-
-    if [ "$dialog_shadow" = "1" ]; then
+    if [ $dialog_shadow -eq 1 ]; then
         dlg_shadow=""
     else
         dlg_shadow="--no-shadow"
