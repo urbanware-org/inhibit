@@ -75,20 +75,27 @@ inhibit_command_execution() {
             if [ $count -eq 0 ]; then
                 break
             fi
-            printf "\rExecuting the command in $count seconds    "
+            if [ $count -le 3 ]; then
+                cs=$cr
+            elif [ $count -le 5 ]; then
+                cs=$cy
+            else
+                cs=$cc
+            fi
+            printf "\rExecuting the command in ${cs}$count seconds${cn}.    "
             printf "\r"
             sleep 1
         done
 
         stty sane
         if [ $cancel -eq 0 ]; then
-            echo -e "No keys pressed. ${cg}Proceeding${cn}.      \n"
+            echo -e "Keys not pressed. ${cg}Proceeding${cn}.              \n"
             if [ $notify_wall -eq 1 ]; then
                 notify_wall_message confirmed
             fi
             $inhibit_command  # execute inhibited command
         else
-            echo -e "Keys pressed. Process ${cr}canceled${cn}.   \n"
+            echo -e "Keys pressed. Process ${cr}canceled${cn}.            \n"
             if [ $notify_wall -eq 1 ]; then
                 notify_wall_message canceled
             fi
