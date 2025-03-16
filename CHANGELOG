@@ -6,6 +6,7 @@ CHANGELOG (Inhibit)
         + Added some additional notifications (broadcast messages) when the
           execution of inhibited commands were confirmed or canceled (in case
           the notification option is enabled).
+        + Added the countdown-timer method to inhibit the command execution.
 
     Version 1.4.1 (2024-07-02)
 
