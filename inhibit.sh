@@ -29,6 +29,7 @@ else
     config_missing=1
 fi
 apply_config
+trap '' TSTP  # ignore SIGTSTP (Ctrl+Z)
 
 if [ -z "$1" ] || [ "$1" = "--help" ]; then
     usage
