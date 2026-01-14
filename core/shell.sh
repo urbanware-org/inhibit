@@ -91,13 +91,13 @@ inhibit_command_execution() {
         if [ $cancel -eq 0 ]; then
             echo -e "Keys not pressed. ${cg}Proceeding${cn}.              \n"
             if [ $notify_wall -eq 1 ]; then
-                notify_wall_message confirmed
+                notify_wall_message "confirmed"
             fi
             $inhibit_command  # execute inhibited command
         else
             echo -e "Keys pressed. Process ${cr}canceled${cn}.            \n"
             if [ $notify_wall -eq 1 ]; then
-                notify_wall_message canceled
+                notify_wall_message "canceled"
             fi
         fi
     else
