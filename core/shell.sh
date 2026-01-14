@@ -97,7 +97,7 @@ inhibit_command_execution() {
         else
             echo -e "Keys pressed. Process ${cr}canceled${cn}.            \n"
             if [ $notify_wall -eq 1 ]; then
-                notify_wall_message "canceled"
+                notify_wall_message "canceled (or failed to run)"
             fi
         fi
     else
