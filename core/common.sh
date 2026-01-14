@@ -17,6 +17,7 @@ apply_config() {
         # Defaults for the configuration options in case the config file is
         # missing. Do not change any of the values below.
         use_timer=0
+        ignore_sigint=0
         notify_wall=0
         show_header=1
         header=""
@@ -33,8 +34,14 @@ apply_config() {
     else
         num_regex='^[0-9]+$'
 
-        if [ ! "$use_timer" = "1" ]; then
+        if [ "$use_timer" = "1" ]; then
+            trap '' INT
+        else
             use_timer=0
+        fi
+
+        if [ "$ignore_sigint" = "1" ]; then
+            trap '' INT
         fi
 
         if [ ! "$notify_wall" = "1" ]; then
