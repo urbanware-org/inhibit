@@ -64,7 +64,7 @@ if [ $use_dialogs -eq 1 ]; then
 fi
 
 if [ $notify_wall -eq 1 ]; then
-    notify_wall_message executed
+    notify_wall_message "executed"
 fi
 
 if [[ $inhibit_command == *systemctl* ]]; then

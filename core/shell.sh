@@ -124,14 +124,14 @@ inhibit_command_execution() {
         if [ $success -eq 1 ]; then
             echo -e "Confirmation ${cg}successful${cn}. Proceeding.\n"
             if [ $notify_wall -eq 1 ]; then
-                notify_wall_message confirmed
+                notify_wall_message "confirmed"
             fi
             $inhibit_command  # execute inhibited command
         else
             echo -e "Confirmation ${cr}failed${cn}." \
                     "Process ${cr}canceled${cn}.\n"
             if [ $notify_wall -eq 1 ]; then
-                notify_wall_message canceled
+                notify_wall_message "canceled (or failed to run)"
             fi
         fi
     fi

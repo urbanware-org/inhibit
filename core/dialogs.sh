@@ -74,7 +74,7 @@ inhibit_command_execution_dialog() {
         sleep 1
         clear
         if [ $notify_wall -eq 1 ]; then
-            notify_wall_message confirmed
+            notify_wall_message "confirmed"
         fi
         $inhibit_command
     else
@@ -82,7 +82,7 @@ inhibit_command_execution_dialog() {
                --msgbox "$dlg_canceled" 7 42
         clear
         if [ $notify_wall -eq 1 ]; then
-            notify_wall_message canceled
+            notify_wall_message "canceled (or failed to run)"
         fi
     fi
 }
