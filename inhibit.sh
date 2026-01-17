@@ -11,8 +11,8 @@
 #
 
 # Before version 1.2.0, the configuration options were simple variables here.
-# By now, there is a separate configuration file. See the file 'inhibit.conf'
-# for preferences.
+# Meanwhile, there is the separate configuration file 'inhibit.conf' which
+# contains all options.
 
 script_dir=$(dirname $(readlink -f $0))
 script_file=$(basename "$0")
