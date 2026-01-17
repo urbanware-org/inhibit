@@ -53,7 +53,7 @@ else
 fi
 
 if [[ $inhibit_command == *inhibit.sh* ]]; then
-    usage "Inhibiting the script itself does not make any sense"
+    inhibit_self
 fi
 
 if [ $use_dialogs -eq 1 ]; then

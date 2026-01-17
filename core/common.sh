@@ -121,6 +121,12 @@ apply_config() {
     fi
 }
 
+inhibit_self() {
+    echo -e "${cc}confused:${cn} Inhibiting the Inhibit script itself does" \
+            "not make any sense."
+    exit 1
+}
+
 notify_wall_message() {
     status="$1"
 
