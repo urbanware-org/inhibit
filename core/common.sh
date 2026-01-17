@@ -34,14 +34,12 @@ apply_config() {
     else
         num_regex='^[0-9]+$'
 
-        if [ "$use_timer" = "1" ]; then
-            trap '' INT
-        else
+        if [ ! "$use_timer" = "1" ]; then
             use_timer=0
         fi
 
-        if [ "$ignore_sigint" = "1" ]; then
-            trap '' INT
+        if [ ! "$ignore_sigint" = "1" ]; then
+            ignore_sigint=0
         fi
 
         if [ ! "$notify_wall" = "1" ]; then

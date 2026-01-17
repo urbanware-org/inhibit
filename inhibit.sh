@@ -29,7 +29,19 @@ else
     config_missing=1
 fi
 apply_config
-trap '' TSTP  # ignore SIGTSTP (Ctrl+Z)
+
+# Handle certain terminal control characters
+trap '' QUIT              # ignore the exit signal via Ctrl+\
+trap '' TSTP              # ignore the suspend signal via Ctrl+Z
+trap signal_exit HUP      # exit on terminal close or SSH drop
+trap signal_exit TERM     # exit on graceful termination
+
+# Handle Ctrl+C differently (which depends on the config file option)
+if [ $ignore_sigint -eq 1 ]; then
+    trap '' INT           # ignore interrupt signal
+else
+    trap signal_exit INT  # exit as usual
+fi
 
 if [ -z "$1" ] || [ "$1" = "--help" ]; then
     usage
