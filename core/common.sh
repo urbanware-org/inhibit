@@ -155,6 +155,12 @@ random_string() {
     fi
 }
 
+signal_exit() {
+    echo -e "\n\nConfirmation ${cr}failed${cn}. Process ${cr}canceled${cn}.\n"
+    notify_wall_message "canceled"
+    exit 2
+}
+
 usage() {
     error_msg="$1"
     usage="${cc}usage:${cn} $script_file"
