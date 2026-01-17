@@ -131,11 +131,9 @@ notify_wall_message() {
     status="$1"
 
     message="The command '${inhibit_command}' has been"
-    if [ "$(whoami)" = "root" ]; then
-        executed_by="${status} by root"
-    else
-        executed_by="$status by user '$(whoami)'"
-    fi
+    user_name=$(whoami)
+    user_id=$(id -u $user_name)
+    executed_by="${status} by $user_name ($user_id)"
     wall "Inhibit [$$]: ${message} ${executed_by} on '$(tty)'." &>/dev/null
 }
 
