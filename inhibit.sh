@@ -16,6 +16,14 @@
 
 script_dir=$(dirname $(readlink -f $0))
 script_file=$(basename "$0")
+
+if [[ "$script_dir" = *[[:space:]]* ]]; then
+    echo -e \
+        "\e[91merror:\e[0m" \
+        "Inhibit cannot be run from a path that contains spaces."
+    exit 10
+fi
+
 source ${script_dir}/core/common.sh
 source ${script_dir}/core/dialogs.sh
 source ${script_dir}/core/shell.sh
