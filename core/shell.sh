@@ -38,7 +38,7 @@ inhibit_command_execution() {
         fi
     fi
     echo
-    echo -e "${cy}Warning!$cn The '${cc}${inhibit_command}${cn}'"\
+    echo -e "${cy}Warning!${cn} The '${cc}${inhibit_command}${cn}'"\
             "command has been ${cr}inhibited${cn}!"
 
     echo
