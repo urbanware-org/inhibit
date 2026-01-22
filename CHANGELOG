@@ -8,6 +8,8 @@ CHANGELOG (Inhibit)
           the notification option is enabled).
         + Added some handlers for various terminal control characters.
         + Added the countdown-timer method to inhibit the command execution.
+        + Added the optional feature to display a notice text above the
+          confirmation (or before when using dialogs).
 
         * Revised the code in general (negligible changes).
 
