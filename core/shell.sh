@@ -106,6 +106,11 @@ inhibit_command_execution() {
         echo
         echo "In order to proceed you have to confirm the process."
 
+        if [ ! -z "$notice" ]; then
+            echo
+            echo -e "$notice\e[0m"
+        fi
+
         success=0
 
         while [ $tries -gt 0 ]; do

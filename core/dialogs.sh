@@ -27,6 +27,11 @@ inhibit_command_execution_dialog() {
         dlg_height=19
     fi
 
+    if [ ! -z "$notice" ]; then
+        dialog --colors --title "Notice" $dlg_shadow --ok-label "Confirm" \
+               --msgbox "${notice}" 16 64
+    fi
+
     dlg_head="         \Z1■■■■■■■■■■■■■■   W A R N I N G !   ■■■■■■■■■■■■■■\Z0"
     dlg_text=$(echo "\n$dlg_head\n\nThe '\Z4$inhibit_command\Z0'" \
                     "command has been \Z1inhibited\Z0!\n\nIn order to" \
