@@ -10,7 +10,7 @@
 # GitLab: https://gitlab.com/urbanware-org/inhibit
 #
 
-version="1.4.1"
+version="1.5.0"
 
 apply_config() {
     if [ $config_missing -eq 1 ]; then
