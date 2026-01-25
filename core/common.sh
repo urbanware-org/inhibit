@@ -3,7 +3,7 @@
 #
 # Inhibit - Prevent accidental execution of certain commands
 # Common core script
-# Copyright (c) 2024 by Ralf Kilian
+# Copyright (c) 2026 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
 # GitHub: https://github.com/urbanware-org/inhibit
