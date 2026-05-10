@@ -20,9 +20,9 @@ Even though, you should always be concentrated when working on the shell of a se
 
 ### Shell commands
 
-One solution is to create *Bash* aliases to prevent the execution of critical commands such as `shutdown`, `poweroff`, `halt` and `reboot`.
+One supposed solution is to create simple *Bash* aliases to prevent the execution of critical commands such as `shutdown`, `poweroff`, `halt` and `reboot`.
 
-However, the problem with these aliases is that you may get used to typing them and also execute them on the wrong system.
+However, the problem with such aliases is that you may get used to typing the commands behind them and also execute these on the wrong system.
 
 So, to avoid this, *Inhibit* will prompt to enter the hostname of the system you are on in order to execute the given command to shutdown, reboot or whatever.
 
