@@ -128,11 +128,11 @@ inhibit_self() {
 notify_wall_message() {
     status="$1"
 
-    message="The command '${inhibit_command}' has been"
+    message="The command '$inhibit_command' has been $status"
     user_name=$(whoami)
     user_id=$(id -u $user_name)
-    executed_by="${status} by $user_name ($user_id)"
-    wall "Inhibit [$$]: ${message} ${executed_by} on '$(tty)'." &>/dev/null
+    executed_by="by $user_name ($user_id)"
+    wall "Inhibit [$$]: $message $executed_by on '$(tty)'." &>/dev/null
 }
 
 print_version() {
