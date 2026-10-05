@@ -91,5 +91,3 @@ inhibit_command_execution_dialog() {
         clear
     fi
 }
-
-# EOF

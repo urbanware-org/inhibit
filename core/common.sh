@@ -171,5 +171,3 @@ usage() {
         exit 0
     fi
 }
-
-# EOF

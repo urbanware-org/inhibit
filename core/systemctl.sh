@@ -47,5 +47,3 @@ inhibit_service_control() {
         fi
     fi
 }
-
-# EOF

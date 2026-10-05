@@ -99,5 +99,3 @@ else
         inhibit_command_execution
     fi
 fi
-
-# EOF
