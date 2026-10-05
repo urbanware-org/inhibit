@@ -1,6 +1,13 @@
 
 CHANGELOG (Inhibit)
 
+    Next release (outstanding)
+
+        + Added an alternative countdown-timer method to inhibit the command
+          execution (to press keys to confirm instead of to cancel).
+
+        # Revised the code in general (negligible changes).
+
     Version 1.5.0 (2026-01-25)
 
         + Added some additional notifications (broadcast messages) when the
