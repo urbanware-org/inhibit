@@ -34,7 +34,7 @@ apply_config() {
     else
         num_regex='^[0-9]+$'
 
-        if [ ! "$use_timer" = "1" ]; then
+        if [ ! "$use_timer" = "1" ] && [ ! "$use_timer" = "2" ]; then
             use_timer=0
         fi
 

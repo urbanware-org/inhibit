@@ -30,6 +30,10 @@ confirm_string() {
 }
 
 inhibit_command_execution() {
+    success=0
+    cancel=0
+    count=$(( timeout + 1 ))
+
     if [ $show_header -eq 1 ]; then
         if [ -z "$header" ]; then
             echo -e "${header_default}\e[0m"
@@ -52,10 +56,7 @@ inhibit_command_execution() {
         echo -e "${cc}Hostname:${cn} $(hostname -s)"
     fi
 
-    if [ $use_timer -eq 1 ]; then
-        cancel=0
-        count=$(( timeout + 1 ))
-
+    if [ $use_timer -eq 1 ]; then  # countdown timer, execute command timeout
         echo
         echo -e "Press ${cy}Ctrl${cn}+${cy}I${cn} to cancel the execution" \
                 "of the command."
@@ -66,7 +67,7 @@ inhibit_command_execution() {
         while true; do
             key=$(dd bs=1 count=1 2>/dev/null)
 
-            if [[ $key == $'\x09' ]]; then  # Ctrl+I for "inhibit"
+            if [[ $key == $'\x09' ]]; then  # Ctrl+I for Inhibit (program)
                 cancel=1
                 break
             fi
@@ -91,16 +92,61 @@ inhibit_command_execution() {
         if [ $cancel -eq 0 ]; then
             echo -e "Keys not pressed. ${cg}Proceeding${cn}.              \n"
             if [ $notify_wall -eq 1 ]; then
-                notify_wall_message "confirmed"
+                notify_wall_message "executed"
             fi
             $inhibit_command  # execute inhibited command
         else
             echo -e "Keys pressed. Process ${cr}canceled${cn}.            \n"
             if [ $notify_wall -eq 1 ]; then
-                notify_wall_message "canceled (or failed to run)"
+                notify_wall_message "canceled"
             fi
         fi
-    else
+    elif [ $use_timer -eq 2 ]; then  # countdown timer, cancel command timeout
+        echo
+        echo -e "Press ${cy}Ctrl${cn}+${cy}I${cn} to confirm the execution" \
+                "of the command."
+        echo
+
+        stty -echo -icanon time 0 min 0
+
+        while true; do
+            key=$(dd bs=1 count=1 2>/dev/null)
+
+            if [[ $key == $'\x09' ]]; then  # Ctrl+I for Inhibit (program)
+                cancel=1
+                break
+            fi
+
+            count=$(( count - 1 ))
+            if [ $count -eq 0 ]; then
+                break
+            fi
+            if [ $count -le 3 ]; then
+                cs=$cr
+            elif [ $count -le 5 ]; then
+                cs=$cy
+            else
+                cs=$cc
+            fi
+            printf "\rCanceling the command in ${cs}$count seconds${cn}.    "
+            printf "\r"
+            sleep 1
+        done
+
+        stty sane
+        if [ $cancel -eq 0 ]; then
+            echo -e "Keys not pressed. Process ${cr}canceled${cn}.  \n"
+            if [ $notify_wall -eq 1 ]; then
+                notify_wall_message "canceled"
+            fi
+        else
+            echo -e "Keys pressed. ${cg}Proceeding${cn}.            \n"
+            if [ $notify_wall -eq 1 ]; then
+                notify_wall_message "executed"
+            fi
+            $inhibit_command  # execute inhibited command
+        fi
+    else  # hostname or string confirmation
         tries=$max_tries
 
         echo
@@ -112,7 +158,6 @@ inhibit_command_execution() {
         fi
 
         success=0
-
         while [ $tries -gt 0 ]; do
             echo
             confirm_string
@@ -127,16 +172,17 @@ inhibit_command_execution() {
         done
 
         if [ $success -eq 1 ]; then
-            echo -e "Confirmation ${cg}successful${cn}. Proceeding.\n"
+            echo -e "Confirmation successful."\
+                    "${cg}Proceeding${cn}.\n"
             if [ $notify_wall -eq 1 ]; then
-                notify_wall_message "confirmed"
+                notify_wall_message "executed"
             fi
             $inhibit_command  # execute inhibited command
         else
             echo -e "Confirmation ${cr}failed${cn}." \
                     "Process ${cr}canceled${cn}.\n"
             if [ $notify_wall -eq 1 ]; then
-                notify_wall_message "canceled (or failed to run)"
+                notify_wall_message "canceled"
             fi
         fi
     fi
