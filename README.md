@@ -32,6 +32,16 @@ This also applies to services controlled by `systemctl`. You can use *Inhibit* t
 
 However, checking the status of a service (using `systemctl status`) does not require any confirmation as this is harmless.
 
+### Options
+
+There are several ways to inhibit the command or service.
+
+* Entering either the host name or a random string
+* Pressing <kbd>Ctrl</kbd>+<kbd>I</kbd> to cancel within 10 seconds (default)
+* Pressing <kbd>Ctrl</kbd>+<kbd>I</kbd> to proceed within 10 seconds (default)
+
+The timer delay can be changed inside the config file. However, the selected method and timer delay apply to all commands and cannot be changed individually.
+
 [Top](#inhibit-)
 
 ## Usage
